@@ -1,0 +1,157 @@
+Id;Tipo;Conteudo;Legenda;Shots;Pontos;Outros Players;Categoria
+0;Desafio;Dê seu número para um estranho;Se lembre de ligar amanhã;1;3;0;Parque
+1;Desafio;Dê um selinho no <jogador_x>;;1;1;1;Trevas
+2;Desafio;Deixe <jogador_x> preparar um drink para você;;4;3;1;Padrão
+3;Desafio;Chupe o dedão de alguém;;3;3;1;Trevas
+4;Desafio;Coloque uma colher de açucar nas suas roupas de baixo;;1;3;0;Trevas
+5;Desafio;Deixe alguém esfregar a bunda na sua cara;;3;4;1;Trevas
+6;Desafio;Selinho em todos os jogadores;;3;3;0;Trevas
+7;Desafio;Retire as meias de alguém usando os dentes;O que é um chulé?;2;4;1;Trevas
+8;Desafio;Plante bananeira por 15 segundos;;2;2;0;Parque
+9;Desafio;Coloque uma venda e dance no colo de alguém; Você nunca saberá quem é.;3;3;0;Trevas
+10;Desafio;Posicione ambas as mãos nos glúteos máximos da pessoa com maior volume nessa região;Aproveite a experiencia;2;2;1;Trevas
+11;Desafio;Sorteie três jogadores e escolha um para beijar;Use o botão de sortear;2;2;1;Trevas
+12;Desafio;Coma um guardanapo inteiro;É saudável, confia;1;1;0;Padrão
+13;Desafio;Conte com que frequência você se masturba;Não precisa ter vergonha;3;3;0;Trevas
+14;Desafio;Com qual jogador você transaria?;Juro que é um elogio;2;2;0;Trevas
+15;Desafio;Tire uma peça (de roupa);Ta calor;2;2;0;Trevas
+16;Desafio;Morda a orelha do <jogador_x>;Delicinha;1;1;1;Padrão
+17;Desafio;Deixa alguém gritar alto no seu ouvido;O QUE? EU NÃO OUVI;2;2;0;Padrão
+18;Desafio;Tome três colheres de azeite;Quatro se você for extra-virgem;3;3;0;Apê
+19;Desafio;Coloque sua bebida em uma camisinha e tome;O gosto fica melhor;1;4;0;Trevas
+20;Desafio;De olhos vendados beije de lingua três objetos escolhidos pelos outros jogadores;Vale objetificar o amiguinho?;2;2;0;Padrão
+21;Desafio;Faça o <jogador_x> rir;Você tem um minuto;3;3;0;Padrão
+22;Desafio;De um beijo de lingua em algum jogador;Só 5 segundos já vale;2;4;1;Trevas
+23;Desafio;Conte o que te excita;Ouvi dizer que tem gente interessada nessa roda aqui;2;2;0;Trevas
+24;Desafio;Peça para tirar uma foto com uma pessoa estranha;Diga xis;2;2;0;Parque
+25;Desafio;Beba 4 vezes;kkkk;4;4;0;Padrão
+26;Desafio;Deixe desenharem uma piroca na sua testa;Com veias e pelinhos;2;2;0;Apê
+27;Desafio;Deixe seus amigos fazerem o seu penteado;Vai ficar chave;1;1;0;Padrão
+28;Desafio;Deixa alguém cuspir água na sua cara;Ta calor, vai ser bom;3;3;0;Padrão
+29;Desafio;Explique como você quer que seja a sua próxima transa;Quem quando e onde;2;2;0;Padrão
+30;Desafio;Cante uma musica sertaneja;Gustavo Lima não vale;1;1;0;Padrão
+31;Desafio;"Mande um ""oi, como que tão as coisas?"" para seu/sua Ex";Vai dar bom;3;3;0;Padrão
+32;Desafio;Coloque Ketchup na sua bebida;Tudo fica melhor quem Ketchup;1;1;0;Apê
+33;Desafio;Finja um orgasmo;Igual você faz na cama;3;3;0;Trevas
+34;Desafio;Faça um boquete.... Na garrafa;Pense nisso como um treinamento;3;3;0;Trevas
+35;Desafio;Dê a luz a uma garrafa;Parto natural, obviamente;3;3;0;Trevas
+36;Desafio;Demonstre sua posição sexual favorita;Vai que tem alguém interessado...;3;3;0;Trevas
+37;Desafio;Passe batom;Ta muito foda;2;2;0;Apê
+38;Desafio;Roa a unha de outro jogador;É tempero;1;3;1;Trevas
+39;Desafio;Cheire uma carreira de sal;Anarcos;3;3;0;Apê
+40;Desafio;Beba do seu sapato;Você ta de chinelo? Se vira!;2;3;0;Padrão
+41;Desafio;Escolha alguém para beber 3 shots;Você pode se salvar;1;3;0;Padrão
+42;Desafio;Coloque o dedo de dois jogadores na sua boca e chupe devagar;A gente tava na duvida sobre essa carta;1;4;2;Trevas
+43;Desafio;<jogador_x> tira uma peça de roupa sua;Você não escolhe qual;1;3;1;Trevas
+44;Desafio;Passe um cubo de gelo para <jogador_x>;Não vale usar as mãos;1;3;1;Trevas
+45;Desafio;Conte o lugar mais inusitado onde você já transou;Eles te conhecem, ninguém vai ficar surpreso;2;2;0;Trevas
+46;Desafio;Encene o início de um filme pornô;Pode chamar alguém para contracenar;2;2;0;Padrão
+47;Desafio;Dê em cima de alguém;Do seu próprio genero;1;2;0;Padrão
+48;Desafio;Cherinho no caongote de <jogador_x>;Hummmm, cherinho de susexo;2;2;1;Trevas
+49;Desafio;Deixe todo mundo cuspir um pouco de bebida no seu copo;Abraço Covid;1;4;0;Trevas
+50;Desafio;Tire a sua roupa de baixo e dê para algum jogador;Nem ta tão fedida;1;5;0;Trevas
+51;Desafio;Deixe alguém te dar um chupão;Saudades chupe-chupe;2;4;0;Trevas
+52;Desafio;Feche os olhos e espere um selinho.;Se você acertar pode ganhar mais pontos sem beber.;2;2;0;Trevas
+53;Desafio;Lamba um sabonete;Limpa essa sua boca suja;2;2;0;Apê
+54;Desafio;Vire meio litro d'água;É importante se hidratar;2;2;0;Padrão
+55;Desafio;Sente no colo de outro jogador até o seu próximo turno;Pra ficar mais confortável;1;1;0;Padrão
+56;Desafio;Beba no umbigo de alguém;Body shot;2;3;0;Trevas
+57;Desafio;Coloque a sua bebida no microondas por 30 segundo;Cuidado pra não por metal;2;2;0;Apê
+58;Jogo;Quem é mais provável de ser preso.;;;;;Padrão
+59;Jogo;Quem é mais provável de roubar um banco;;;;;Padrão
+60;Jogo;Quem é mais provável de virar politico;;;;;Padrão
+61;Jogo;Quem é mais provável de chutar um cachorro;;;;;Padrão
+62;Jogo;Jogo do cartão: Passem o cartão de boca em boca;A dupla que deiar cair da um selinho;;;;Trevas
+63;Jogo;Ursinho;;;;;Padrão
+64;Regra;"Até a sua próxima rodada você não pode falar a palavra ""não""";;;;;Padrão
+65;Regra;Termine todas as suas frases com câmbio.;;;;;Padrão
+66;Regra;Gire 10 vezes e ande em linha reta;;;;;Parque
+67;Regra;Você não pode chamar ninguém pelo nome proprio;;;;;Padrão
+68;Regra;Se atire quando alguém gritar granada;Fire in the hole!;;;;Parque
+69;Regra;Use seus sapatos como luvas;Avant-garde da moda;;;;Padrão
+70;Regra;Quando alguém fizer um desafio de quatro pontos beba uma vez;Companheiro é companheiro;;;;Padrão
+71;Regra;Grite saúde antes de beber;;;;;Padrão
+72;Regra;Fique de mãos fechadas;;;;;Padrão
+73;RNG;"""Racismo não é bacana"" quem concorda bebe";;;;;Padrão
+74;RNG;Quem for ateu bebe;;;;;Padrão
+75;RNG;Todo mundo bebe;;;;;Padrão
+76;RNG;Quem já esteve em um acidente de carro bebe;;;;;Padrão
+77;RNG;Mulheres bebem;;;;;Padrão
+78;RNG;Os homens bebem;;;;;Padrão
+79;RNG;Quem for não cis bebe dois shots;;;;;Padrão
+80;RNG;O jogador mais mal vestido bebe;;;;;Padrão
+81;RNG;Os desempregados bebem;;;;;Padrão
+82;RNG;Quem tá de verde bebe;Foda-se o Unwelt;;;;Padrão
+83;RNG;Quem bater na testa por ultimo bebe;Com força;;;;Padrão
+84;RNG;Quem já teve experiencia de quase morte bebe;Força ai;;;;Padrão
+85;RNG;Quem estiver usando sutiã bebe;;;;;Padrão
+86;RNG;Os jogadores mais pesado e mais leve bebem;;;;;Padrão
+87;RNG;Quem já andou de ambulância bebe;;;;;Padrão
+88;RNG;Todos os solteiros bebem;;;;;Padrão
+89;RNG;Filhos unicos bebem;;;;;Padrão
+90;RNG;Quem tem irmão/irmã bebe;;;;;Padrão
+91;RNG;Quem namora bebe;Namora não da;;;;Padrão
+92;Jogo;Quem é mais provável de trair;;;;;Padrão
+93;Jogo;Quem é mais provável de ser traido;;;;;Padrão
+94;Jogo;Quem é mais provável de ser preso;;;;;Padrão
+95;Jogo;Quem é mais provável de mandar nudes;;;;;Padrão
+96;RNG;Quem já mandou nudes bebe;;;;;Padrão
+97;Jogo;Quem é mais provável de ficar com crush de amigo;;;;;Padrão
+98;Jogo;Quem é mais provável de se safar de um assassinato;;;;;Padrão
+99;Jogo;Quem é mais provável de se atrasar do próprio casamento;;;;;Padrão
+100;Jogo;Quem mente melhor do grupo;;;;;Padrão
+101;Jogo;Quem é mais provável de chorar em filme triste;;;;;Padrão
+102;Jogo;Quem é mais provável de cair em Fake News;;;;;Padrão
+103;Jogo;Quem é mais provável de correr pelado;;;;;Padrão
+104;Jogo;Quem é mais gado;;;;;Padrão
+105;Jogo;Quem é mais provável de se casar primeiro;;;;;Padrão
+106;Jogo;Quem é mais provável de ter um coma alcoólico;;;;;Padrão
+107;Jogo;Quem é mais provável de ter uma overdose;;;;;Padrão
+108;Jogo;Quem é mais provavel de costas;;;;;Padrão
+109;Jogo;"Eu nunca tive ""relações"" com uma pessoa de que eu não gostava";;;;;Padrão
+110;Jogo;Eu nunca beijei um crush de amigo;;;;;Padrão
+111;Jogo;Eu nunca transei na piscina;;;;;Padrão
+112;Jogo;Eu nunca tive um wet dream com alguém da roda;;;;;Padrão
+113;Jogo;Eu nunca transei em lugar público;;;;;Padrão
+114;Jogo;Eu nunca quis pegar alguém casado;;;;;Padrão
+115;Jogo;Eu nunca fiquei com irmão/irmã de amigx;;;;;Padrão
+116;Jogo;Eu nunca pedi pra volta com EX;;;;;Padrão
+117;Jogo;Eu nunca usei algemas na cama;;;;;Padrão
+118;Jogo;Eu nunca fiquei com uma pessoa e nunca mais falei com ela;;;;;Padrão
+119;Jogo;Eu nunca comi durante o sexo;;;;;Padrão
+120;Jogo;Eu nunca me arrependi de namorar alguém;;;;;Padrão
+121;Jogo;Eu nunca flertei com barista para ganhar bebida de graça;;;;;Padrão
+122;RNG;A pessoa mais gata da roda bebe;;;;;Padrão
+123;Jogo;Eu nunca sai sem roupa de baixo;;;;;Padrão
+124;Jogo;Eu nunca fiquei com alguém só pra deixar a outra com ciúmes;;;;;Padrão
+125;Jogo;Eu nunca fiquei com algéum que beija mal;;;;;Padrão
+126;Jogo;"Eu nunca fiz ""sacanagens"" na escola/ trabalho/ uni";;;;;Padrão
+127;Jogo;Eu nunca fiquei com alguém que namorava;;;;;Padrão
+128;Jogo;Eu nunca criei uma playlist para transar;;;;;Padrão
+129;Jogo;Eu nunca treinei beijo de lingua;;;;;Padrão
+130;Jogo;Eu nunca fiquei com alguém no banheiro de uma festa;;;;;Padrão
+131;Jogo;Eu nunca estive em um threesome;;;;;Padrão
+132;Jogo;Eu nunca acordei sem saber onde eu estava;;;;;Padrão
+133;Jogo;"Eu nunca comprei um ""brinquedo""";;;;;Padrão
+134;Jogo;Eu nunca dormi chorando por causa de alguém;;;;;Padrão
+135;Jogo;Eu nunca beijei na escola;;;;;Padrão
+136;Jogo;Eu nunca fui pego transando;;;;;Padrão
+137;Jogo;Eu nunca falhei depois de me arranjarem pro @;;;;;Padrão
+138;Jogo;Eu nunca dei PT na casa do @;;;;;Padrão
+139;Jogo;Quem é mais provavel de ser cancelado;;;;;Padrão
+140;Desafio;Lamba o umbigo de <jogador_x>;;4;4;1;Padrão
+141;Desafio;Mostre um mamilo para a pessoa na sua direita;UM MAMILO APENAS;4;5;1;Trevas
+142;Desafio;Beijo triplo com duas pessoas de sua escolha;;4;3;1;Padrão
+143;Desafio;Beijo quádruplo ;Inlcuir no mínimo uma pessoa de cada identidade de gênero presente;4;3;1;Padrão
+144;Desafio;Chupao de 3 segundos na pessoa da sua esquerda;;4;4;2;Padrão
+145;Desafio;Lamba a orelha de <jogador_x>;;3;3;1;Padrão
+146;Desafio;Morda a canela de <jogador_x>;;3;4;1;Padrão
+147;Desafio;Dance quadradinho de 8 ao som de Vamos Pra Gaiola;;4;3;0;Padrão
+148;Desafio;Striptease sensual de uma peça de roupa ao som de Pony;Caso a pessoa se sinta desconfortável em ficar sem camiseta, é permitido fazer com um casaco;4;5;0;Trevas
+149;Desafio;Melhor de 3 rounds de batalha de rima com <jogador_x>;;4;4;2;Padrão
+150;Desafio;Imite uma personalidade famosa da TV brasileira;Os outros participantes tem que adivinhar quem é;4;3;0;Padrão
+151;Desafio;Troque sua peça de roupa superior com uma pessoa de outro gênero por 1 rodada;;4;5;2;Trevas
+152;Desafio;Cante I will always love you da Whitney Houston com vontade;Tente acertar as notas de verdade sem desafinar;4;4;0;Padrão
+153;Desafio;Simule um 69 em pé com <jogador_x> ;Você deve ser a pessoa de ponta cabeça;4;4;2;Padrão
+154;Desafio;Fique de 4 e deixe <jogador_x> te dar um tapasso na bunda;;4;3;1;Padrão
+155;Desafio;Dê um pega de um beck e passe na boca de uma pessoa à sua escolha;;4;4;1;Padrão

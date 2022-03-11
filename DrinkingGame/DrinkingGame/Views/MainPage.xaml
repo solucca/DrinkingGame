@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrinkingGame.Views.MainPage"
+             xmlns:vm="clr-namespace:DrinkingGame.ViewModels"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="true">
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Untitled Boose Game" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="50" Padding="10,20,0,-10"/>
+            <Label Text="Sim, eu copiei o iPuke" Padding="25,0,0,0" FontSize="20"/>
+            <Button CornerRadius="30" WidthRequest="250" Text="JOGAR" HorizontalOptions="Center"
+                    FontAttributes="Bold" FontSize="20" Margin="0,30,0,0" Command="{Binding StartGame}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

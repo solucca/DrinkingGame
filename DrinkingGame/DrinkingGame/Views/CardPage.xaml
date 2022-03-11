@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrinkingGame.Views.CardPage"
+             xmlns:vm="clr-namespace:DrinkingGame.ViewModels"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="false">
+    <ContentPage.BindingContext>
+        <vm:CardViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="10,60,10,10" CornerRadius="20" BorderColor="#E900FF" HeightRequest="390">
+                <StackLayout>
+                    <Label Text="{Binding Card.Tipo}" FontSize="20" HorizontalOptions="End"/>
+                    <Label Text="{Binding Card.Nome}" 
+                           VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
+                           FontSize="30" FontAttributes="Bold" TextColor="#E900FF"/>
+                    <Label Text="{Binding Card.Legenda}" 
+                           FontSize="23" FontAttributes="Italic" TextColor="#555"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Switch IsToggled="False" HorizontalOptions="Center" Scale="1.7" Margin="10,10,10,10"/>
+                        <Label Text="{Binding Card.Pontos}" VerticalOptions="CenterAndExpand"
+                               FontSize="25" TextColor="#555"/>
+                        <Label Text="Pontos" VerticalOptions="CenterAndExpand"
+                               FontSize="25" TextColor="#555"/>
+                    </StackLayout>
+
+                    <Rectangle HeightRequest="2" BackgroundColor="#E900FF" Margin="0,0,0,10"/>
+                    
+                    <Label Text="Beba para ganhar mais pontos!"  
+                           FontSize="23" TextColor="#555"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Switch IsToggled="False" HorizontalOptions="Center" Scale="1.7" Margin="10,10,10,10"/>
+                        <Label Text="{Binding Card.Shots}" VerticalOptions="CenterAndExpand"
+                               FontSize="25" TextColor="#555"/>
+                        <Label Text="Pontos" VerticalOptions="CenterAndExpand"
+                               FontSize="25" TextColor="#555"/>
+                    </StackLayout>
+
+
+ 
+                </StackLayout>
+            </Frame>
+            <Button Text="PROXIMA" Command="{Binding NextCommand}"
+                    FontSize="Large" FontAttributes="Bold" 
+                    VerticalOptions="EndAndExpand" HeightRequest="70" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
