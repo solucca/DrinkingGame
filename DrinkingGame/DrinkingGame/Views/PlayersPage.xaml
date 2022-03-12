@@ -12,28 +12,28 @@
             <ScrollView Padding="0,0,0,10">
                 <StackLayout>
                 <Grid Margin="10,10,10,0">
-                    <Button Text="Adicionar Jogador" Clicked="Add" Grid.Column="0"/>
-                    <Button Text="Remover Jogador" Clicked="Remove" Grid.Column="1"/>
+                    <Button Text="Adicionar Jogador" Clicked="Add" Grid.Column="0" Command="{Binding AddPlayer}"/>
+                        <Button Text="Remover Jogador" Clicked="Remove" Grid.Column="1" Command="{Binding RemovePlayer}"/>
                 </Grid>
             
                 <Frame BorderColor="#E900FF" CornerRadius="20" Margin="10,10,10,10">
                     <StackLayout>
                         <Label Text="Jogadores:" FontSize="Title" FontAttributes="Bold" TextColor="#555"/>
-                        <Entry x:Name="entry1" Placeholder="Maluquete 1..." />
-                        <Entry x:Name="entry2" Placeholder="Maluquete 2..." />
-                        <Entry x:Name="entry3" Placeholder="Maluquete 3..." IsVisible="false"/>
-                        <Entry x:Name="entry4" Placeholder="Maluquete 4..." IsVisible="false"/>
-                        <Entry x:Name="entry5" Placeholder="Maluquete 5..." IsVisible="false"/>
-                        <Entry x:Name="entry6" Placeholder="Maluquete 6..." IsVisible="false"/>
-                        <Entry x:Name="entry7" Placeholder="Maluquete 7..." IsVisible="false"/>
-                        <Entry x:Name="entry8" Placeholder="Maluquete 8..." IsVisible="false"/>
-                        <Entry x:Name="entry9" Placeholder="Maluquete 9..." IsVisible="false"/>
-                        <Entry x:Name="entry10" Placeholder="Maluquete 10..." IsVisible="false"/>
+                            <Entry x:Name="entry1" Text="{Binding Players[0], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 1..." />
+                            <Entry x:Name="entry2" Text="{Binding Players[1], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 2..." />
+                            <Entry x:Name="entry3" Text="{Binding Players[2], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 3..." IsVisible="false"/>
+                            <Entry x:Name="entry4" Text="{Binding Players[3], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 4..." IsVisible="false"/>
+                            <Entry x:Name="entry5" Text="{Binding Players[4], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 5..." IsVisible="false"/>
+                            <Entry x:Name="entry6" Text="{Binding Players[5], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 6..." IsVisible="false"/>
+                            <Entry x:Name="entry7" Text="{Binding Players[6], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 7..." IsVisible="false"/>
+                            <Entry x:Name="entry8" Text="{Binding Players[7], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 8..." IsVisible="false"/>
+                            <Entry x:Name="entry9" Text="{Binding Players[8], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 9..." IsVisible="false"/>
+                            <Entry x:Name="entry10" Text="{Binding Players[9], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 10..." IsVisible="false"/>
                     </StackLayout>
                     </Frame>
 
                     <Button Text="Começar Jogo" Margin="10,10,10,20" CornerRadius="30"
-                            FontAttributes="Bold" FontSize="20" Clicked="Add" />
+                            FontAttributes="Bold" FontSize="20" Command="{Binding StartGame}" />
                 </StackLayout>
             </ScrollView>
         </StackLayout>

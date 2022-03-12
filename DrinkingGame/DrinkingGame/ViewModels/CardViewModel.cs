@@ -26,16 +26,41 @@ namespace DrinkingGame.ViewModels
                 OnPropertyChanged(nameof(Card));
             }
         }
+        public string[] Visible { 
+            get { return _visible; }
+            set
+            {
+                if (_visible != value)
+                {
+                    _visible = value;
+                    OnPropertyChanged(nameof(Visible));
+                }
+            }
+        }
+        private string[] _visible;
         public CardViewModel()
         {
             _deck = new CardDeck();
+            
             Card = _deck.cards[_deck.current];
+            switch (Card.Tipo){
+                case "Desafio": Visible = new string[] { "True", "False", "False", "False" };break;
+                case "Jogo": Visible = new string[] { "False", "True", "False", "False" }; break;
+                case "RNG": Visible = new string[] { "False", "False", "True", "False" }; break;
+                case "Regra": Visible = new string[] { "False", "False", "False", "True" }; break;
+            }
 
             NextCommand = new Command(() =>
             {
                 _deck.current++;
                 Card = _deck.cards[_deck.current];
-                Console.WriteLine("Button Pressed");
+                switch (Card.Tipo)
+                {
+                    case "Desafio": Visible = new string[] { "True", "False", "False", "False" }; break;
+                    case "Jogo": Visible = new string[] { "False", "True", "False", "False" }; break;
+                    case "RNG": Visible = new string[] { "False", "False", "True", "False" }; break;
+                    case "Regra": Visible = new string[] { "False", "False", "False", "True" }; break;
+                }
             });
 
         }

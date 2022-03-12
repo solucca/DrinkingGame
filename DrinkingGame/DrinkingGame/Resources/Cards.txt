@@ -30,7 +30,7 @@ Id;Tipo;Conteudo;Legenda;Shots;Pontos;Outros Players;Categoria
 28;Desafio;Deixa alguém cuspir água na sua cara;Ta calor, vai ser bom;3;3;0;Padrão
 29;Desafio;Explique como você quer que seja a sua próxima transa;Quem quando e onde;2;2;0;Padrão
 30;Desafio;Cante uma musica sertaneja;Gustavo Lima não vale;1;1;0;Padrão
-31;Desafio;"Mande um ""oi, como que tão as coisas?"" para seu/sua Ex";Vai dar bom;3;3;0;Padrão
+31;Desafio;Mande um "oi, como que tão as coisas?" para seu/sua Ex;Vai dar bom;3;3;0;Padrão
 32;Desafio;Coloque Ketchup na sua bebida;Tudo fica melhor quem Ketchup;1;1;0;Apê
 33;Desafio;Finja um orgasmo;Igual você faz na cama;3;3;0;Trevas
 34;Desafio;Faça um boquete.... Na garrafa;Pense nisso como um treinamento;3;3;0;Trevas
@@ -63,7 +63,7 @@ Id;Tipo;Conteudo;Legenda;Shots;Pontos;Outros Players;Categoria
 61;Jogo;Quem é mais provável de chutar um cachorro;;;;;Padrão
 62;Jogo;Jogo do cartão: Passem o cartão de boca em boca;A dupla que deiar cair da um selinho;;;;Trevas
 63;Jogo;Ursinho;;;;;Padrão
-64;Regra;"Até a sua próxima rodada você não pode falar a palavra ""não""";;;;;Padrão
+64;Regra;Até a sua próxima rodada você não pode falar a palavra "não";;;;;Padrão
 65;Regra;Termine todas as suas frases com câmbio.;;;;;Padrão
 66;Regra;Gire 10 vezes e ande em linha reta;;;;;Parque
 67;Regra;Você não pode chamar ninguém pelo nome proprio;;;;;Padrão
@@ -72,7 +72,7 @@ Id;Tipo;Conteudo;Legenda;Shots;Pontos;Outros Players;Categoria
 70;Regra;Quando alguém fizer um desafio de quatro pontos beba uma vez;Companheiro é companheiro;;;;Padrão
 71;Regra;Grite saúde antes de beber;;;;;Padrão
 72;Regra;Fique de mãos fechadas;;;;;Padrão
-73;RNG;"""Racismo não é bacana"" quem concorda bebe";;;;;Padrão
+73;RNG;"Racismo não é bacana" quem concorda bebe;;;;;Padrão
 74;RNG;Quem for ateu bebe;;;;;Padrão
 75;RNG;Todo mundo bebe;;;;;Padrão
 76;RNG;Quem já esteve em um acidente de carro bebe;;;;;Padrão
@@ -108,7 +108,7 @@ Id;Tipo;Conteudo;Legenda;Shots;Pontos;Outros Players;Categoria
 106;Jogo;Quem é mais provável de ter um coma alcoólico;;;;;Padrão
 107;Jogo;Quem é mais provável de ter uma overdose;;;;;Padrão
 108;Jogo;Quem é mais provavel de costas;;;;;Padrão
-109;Jogo;"Eu nunca tive ""relações"" com uma pessoa de que eu não gostava";;;;;Padrão
+109;Jogo;Eu nunca tive "relações" com uma pessoa de que eu não gostava;;;;;Padrão
 110;Jogo;Eu nunca beijei um crush de amigo;;;;;Padrão
 111;Jogo;Eu nunca transei na piscina;;;;;Padrão
 112;Jogo;Eu nunca tive um wet dream com alguém da roda;;;;;Padrão
@@ -125,14 +125,14 @@ Id;Tipo;Conteudo;Legenda;Shots;Pontos;Outros Players;Categoria
 123;Jogo;Eu nunca sai sem roupa de baixo;;;;;Padrão
 124;Jogo;Eu nunca fiquei com alguém só pra deixar a outra com ciúmes;;;;;Padrão
 125;Jogo;Eu nunca fiquei com algéum que beija mal;;;;;Padrão
-126;Jogo;"Eu nunca fiz ""sacanagens"" na escola/ trabalho/ uni";;;;;Padrão
+126;Jogo;Eu nunca fiz "sacanagens" na escola/ trabalho/ uni;;;;;Padrão
 127;Jogo;Eu nunca fiquei com alguém que namorava;;;;;Padrão
 128;Jogo;Eu nunca criei uma playlist para transar;;;;;Padrão
 129;Jogo;Eu nunca treinei beijo de lingua;;;;;Padrão
 130;Jogo;Eu nunca fiquei com alguém no banheiro de uma festa;;;;;Padrão
 131;Jogo;Eu nunca estive em um threesome;;;;;Padrão
 132;Jogo;Eu nunca acordei sem saber onde eu estava;;;;;Padrão
-133;Jogo;"Eu nunca comprei um ""brinquedo""";;;;;Padrão
+133;Jogo;Eu nunca comprei um "brinquedo";;;;;Padrão
 134;Jogo;Eu nunca dormi chorando por causa de alguém;;;;;Padrão
 135;Jogo;Eu nunca beijei na escola;;;;;Padrão
 136;Jogo;Eu nunca fui pego transando;;;;;Padrão

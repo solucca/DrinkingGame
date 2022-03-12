@@ -5,12 +5,19 @@
              xmlns:vm="clr-namespace:DrinkingGame.ViewModels"
              Title="{Binding Title}"
              Shell.NavBarIsVisible="false">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior
+        IsEnabled="False"/>
+    </Shell.BackButtonBehavior>
+    
     <ContentPage.BindingContext>
         <vm:CardViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Frame Margin="10,60,10,10" CornerRadius="20" BorderColor="#E900FF" HeightRequest="390">
+            <!-- Desafio -->
+            <Frame Margin="10,60,10,10" CornerRadius="20" IsVisible="{Binding Visible[0]}"
+                   BorderColor="#E900FF" HeightRequest="-1">
                 <StackLayout>
                     <Label Text="{Binding Card.Tipo}" FontSize="20" HorizontalOptions="End"/>
                     <Label Text="{Binding Card.Nome}" 
@@ -27,7 +34,7 @@
                     </StackLayout>
 
                     <Rectangle HeightRequest="2" BackgroundColor="#E900FF" Margin="0,0,0,10"/>
-                    
+
                     <Label Text="Beba para ganhar mais pontos!"  
                            FontSize="23" TextColor="#555"/>
                     <StackLayout Orientation="Horizontal">
@@ -37,11 +44,51 @@
                         <Label Text="Pontos" VerticalOptions="CenterAndExpand"
                                FontSize="25" TextColor="#555"/>
                     </StackLayout>
-
-
- 
                 </StackLayout>
             </Frame>
+
+            <!-- Jogo -->
+            <Frame Margin="10,60,10,10" CornerRadius="20" IsVisible="{Binding Visible[1]}"
+                   BorderColor="#E900FF" HeightRequest="-1">
+                <StackLayout>
+                    <Label Text="{Binding Card.Tipo}" FontSize="20" HorizontalOptions="End"/>
+                    <Label Text="{Binding Card.Nome}" 
+                           VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
+                           FontSize="40" FontAttributes="Bold" TextColor="#E900FF"/>
+                    <Label Text="{Binding Card.Legenda}" 
+                           FontSize="23" FontAttributes="Italic" TextColor="#555"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- RNG -->
+            <Frame Margin="10,60,10,10" CornerRadius="20" IsVisible="{Binding Visible[2]}"
+                   BorderColor="#E900FF" HeightRequest="-1">
+                <StackLayout>
+                    <Label Text="{Binding Card.Tipo}" FontSize="20" HorizontalOptions="End"/>
+                    <Label Text="O Universo escolheu..." FontSize="22"/>
+                    <Label Text="{Binding Card.Nome}" 
+                           VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
+                           FontSize="40" FontAttributes="Bold" TextColor="#E900FF"/>
+                    <Label Text="{Binding Card.Legenda}" 
+                           FontSize="23" FontAttributes="Italic" TextColor="#555"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- RNG -->
+            <Frame Margin="10,60,10,10" CornerRadius="20" IsVisible="{Binding Visible[3]}"
+                   BorderColor="#E900FF" HeightRequest="-1">
+                <StackLayout>
+                    <Label Text="{Binding Card.Tipo}" FontSize="20" HorizontalOptions="End"/>
+                    <Label Text="O Universo escolheu..." FontSize="22"/>
+                    <Label Text="{Binding Card.Nome}" 
+                           VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
+                           FontSize="40" FontAttributes="Bold" TextColor="#E900FF"/>
+                    <Label Text="{Binding Card.Legenda}" 
+                           FontSize="23" FontAttributes="Italic" TextColor="#555"/>
+                </StackLayout>
+            </Frame>
+            
+            
             <Button Text="PROXIMA" Command="{Binding NextCommand}"
                     FontSize="Large" FontAttributes="Bold" 
                     VerticalOptions="EndAndExpand" HeightRequest="70" />
