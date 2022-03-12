@@ -6,22 +6,32 @@ namespace DrinkingGame.Services
 {
     public class Players
     {
-        private Dictionary<string, int> Values { get; set; }
+        private List<string> Nomes { get; set; }
+        private List<int> Pontos { get; set; }
+        public string Atual
+        {
+            get { return Nomes[_current]; }
+        }
+        private int _current = 0;
+
         private int WinCond = 100;
         
         public Players()
         {
-            Values = new Dictionary<string, int>();
+            Nomes = new List<string>();
+            Pontos = new List<int>();
         }
         public void Add_player(string Name)
         {
-            Values[Name] = 0;
+            Nomes.Add(Name);
+            Pontos.Add(0);
         }
         public void Add_player(string[] Names)
         {
             for (int i = 0; i < Names.Length; i++)
             {
-                Values[Names[i]] = 0;
+                Nomes.Add(Names[i]);
+                Pontos.Add(0);
             }
         }
         public void Set_WinCondition(int value)
@@ -30,14 +40,22 @@ namespace DrinkingGame.Services
         }
         public string IsGameOver()
         {
-            foreach (string Name in Values.Keys)
+            for (int i = 0; i < Nomes.Count; i++)
             {
-                if (Values[Name] >= WinCond)
+                if (Pontos[i] >= WinCond)
                 {
-                    return Name;
+                    return Nomes[i];
                 }
             }
             return null;
+        }
+        public void PassTurn()
+        {
+            _current++;
+            if (_current >= Nomes.Count)
+            {
+                _current = 0;
+            }
         }
     }
 }

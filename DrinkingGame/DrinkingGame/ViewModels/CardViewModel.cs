@@ -26,6 +26,22 @@ namespace DrinkingGame.ViewModels
                 OnPropertyChanged(nameof(Card));
             }
         }
+        public string Player
+        {
+            get
+            {
+                return _player;
+            }
+            set
+            {
+                if (_player != value)
+                {
+                    _player = value;
+                    OnPropertyChanged(nameof(Player));
+                }
+            }
+        }
+        private string _player;
         public string[] Visible { 
             get { return _visible; }
             set
@@ -41,7 +57,7 @@ namespace DrinkingGame.ViewModels
         public CardViewModel()
         {
             _deck = new CardDeck();
-            
+            Player = (Application.Current as App).players.Atual;
             Card = _deck.cards[_deck.current];
             switch (Card.Tipo){
                 case "Desafio": Visible = new string[] { "True", "False", "False", "False" };break;
@@ -54,6 +70,8 @@ namespace DrinkingGame.ViewModels
             {
                 _deck.current++;
                 Card = _deck.cards[_deck.current];
+                (Application.Current as App).players.PassTurn();
+                Player = (Application.Current as App).players.Atual;
                 switch (Card.Tipo)
                 {
                     case "Desafio": Visible = new string[] { "True", "False", "False", "False" }; break;

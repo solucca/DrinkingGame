@@ -20,6 +20,7 @@
                    BorderColor="#E900FF" HeightRequest="-1">
                 <StackLayout>
                     <Label Text="{Binding Card.Tipo}" FontSize="20" HorizontalOptions="End"/>
+                    <Label Text="{Binding Player}"/>
                     <Label Text="{Binding Card.Nome}" 
                            VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
                            FontSize="30" FontAttributes="Bold" TextColor="#E900FF"/>
