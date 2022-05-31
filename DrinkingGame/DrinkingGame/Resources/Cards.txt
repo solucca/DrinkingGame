@@ -1,7 +1,7 @@
 Id;Tipo;Conteudo;Legenda;Shots;Pontos;Outros Players;Categoria
-0;Desafio;Dê seu número para um estranho;Se lembre de ligar amanhã;1;3;0;Parque
+0;Desafio;Deixe <jogador_x> preparar um drink para você;;4;3;1;Padrão
 1;Desafio;Dê um selinho no <jogador_x>;;1;1;1;Trevas
-2;Desafio;Deixe <jogador_x> preparar um drink para você;;4;3;1;Padrão
+2;Desafio;Dê seu número para um estranho;Se lembre de ligar amanhã;1;3;0;Parque
 3;Desafio;Chupe o dedão de alguém;;3;3;1;Trevas
 4;Desafio;Coloque uma colher de açucar nas suas roupas de baixo;;1;3;0;Trevas
 5;Desafio;Deixe alguém esfregar a bunda na sua cara;;3;4;1;Trevas

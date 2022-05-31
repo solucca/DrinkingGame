@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrinkingGame.Views.ScoreboardPage"
+             xmlns:vm="clr-namespace:DrinkingGame.ViewModels"
+             Shell.NavBarIsVisible="True"
+             Title="Placar">
+    <ContentPage.BindingContext>
+        <vm:ScoreboardViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Nome" TargetType="Label">
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label Text="{Binding Score, StringFormat='Objetivo: {0}'}" 
+                   HorizontalOptions="CenterAndExpand" Margin="10,15,10,10"
+                   FontSize="40" FontAttributes="Bold" TextColor="{StaticResource Primary}"/>
+
+            <Rectangle HeightRequest="2" BackgroundColor="{StaticResource Primary}"
+                       Margin="60,-24,60,0"/>
+
+            <ScrollView Padding="40,10,40,0">
+                <StackLayout BindableLayout.ItemsSource="{Binding Players}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="0,0,0,5" CornerRadius="10" Padding="5" 
+                                   BorderColor="{Binding Color}">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Name}" Style="{StaticResource Nome}"
+                                           TextColor="{Binding Color}"
+                                           HorizontalOptions="StartAndExpand" Margin="20,0,0,0"/>
+                                    <Label Text="{Binding Points}" Style="{StaticResource Nome}" 
+                                           HorizontalOptions="EndAndExpand" Margin="0,0,30,0"/>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

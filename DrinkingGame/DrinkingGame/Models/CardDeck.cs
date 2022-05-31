@@ -8,43 +8,44 @@ namespace DrinkingGame.Models
 {
     public class CardDeck
     {
-        public List<Card> cards { get; set; }
-        public int current { get; set; }
+        /*
+            Baralho Usado No jogo
+         */
+        public List<Card> Cards { get; set; }
+        public Card Current { get => Cards[CurrentIndex];}
+        private int CurrentIndex { get; set; }
         public CardDeck()
         {
-            this.cards = new List<Card> { };
-            this.current = 0;
+            Cards = new List<Card> { };
+            CurrentIndex = 0;
+        }
+    
 
-            var assembly = Assembly.GetExecutingAssembly();
-            Stream stream = assembly.GetManifestResourceStream("DrinkingGame.Resources.Cards.txt");
-            string line = "";
-            string[] fields;
-            using (var reader = new System.IO.StreamReader(stream, Encoding.GetEncoding("iso-8859-1"), true))
-            {
-                reader.ReadLine(); //remove first line
-                while (reader.Peek() >= 0)
-                {
-                    line = reader.ReadLine();
-                    fields = line.Split(';');
-                    try
-                    {
-                        cards.Add(new Card(fields));
-                    } catch
-                    {
-                        continue;
-                    }
-                    
-                }
-            }
+        public void AddBaralho(List<Card> cards)
+        {
+            Cards.AddRange(cards);
+        }
 
+        public void Shuffle()
+        {
             Random rand = new Random();
-            for (int i = 0; i < cards.Count - 1; i++)
+            for (int i = 0; i < Cards.Count - 1; i++)
             {
-                int j = rand.Next(i, cards.Count);
-                Card temp = cards[i];
-                cards[i] = cards[j];
-                cards[j] = temp;
+                int j = rand.Next(i, Cards.Count);
+                Card temp = Cards[i];
+                Cards[i] = Cards[j];
+                Cards[j] = temp;
             }
+        }
+    
+        public bool DrawCard()
+        {
+            if (CurrentIndex >= Cards.Count - 1)
+            {
+                return false;
+            }
+            CurrentIndex++;
+            return true;
         }
     }
 

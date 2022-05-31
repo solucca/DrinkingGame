@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrinkingGame.Views.WinnerPage"
+             xmlns:vm="clr-namespace:DrinkingGame.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:WinnerViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="10,30,10,10" BackgroundColor="{StaticResource Primary}" CornerRadius="20">
+                <Label Text="VENCEDOR"
+                   FontSize="50" FontAttributes="Bold" TextColor="White"
+                   HorizontalOptions="Center"/>
+            </Frame>
+            
+            <Label Text="{Binding Winner.Name}"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="60"/>
+            <Button Text="MENU" VerticalOptions="EndAndExpand" Margin="30" 
+                    FontSize="33" FontAttributes="Bold"
+                    HorizontalOptions="CenterAndExpand" CornerRadius="20"
+                    Command="{Binding GoToMenu}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

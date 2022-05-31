@@ -2,97 +2,129 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DrinkingGame.Views.CardPage"
-             xmlns:vm="clr-namespace:DrinkingGame.ViewModels"
-             Title="{Binding Title}"
-             Shell.NavBarIsVisible="false">
+             xmlns:vm="clr-namespace:DrinkingGame.ViewModels">
     <Shell.BackButtonBehavior>
-        <BackButtonBehavior
-        IsEnabled="False"/>
+        <BackButtonBehavior IsEnabled="False"/>
     </Shell.BackButtonBehavior>
     
     <ContentPage.BindingContext>
         <vm:CardViewModel/>
     </ContentPage.BindingContext>
+    
     <ContentPage.Content>
+
         <StackLayout>
-            <!-- Desafio -->
-            <Frame Margin="10,60,10,10" CornerRadius="20" IsVisible="{Binding Visible[0]}"
-                   BorderColor="#E900FF" HeightRequest="-1">
+            <ScrollView x:Name="Card">
                 <StackLayout>
-                    <Label Text="{Binding Card.Tipo}" FontSize="20" HorizontalOptions="End"/>
-                    <Label Text="{Binding Player}"/>
-                    <Label Text="{Binding Card.Nome}" 
-                           VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
-                           FontSize="30" FontAttributes="Bold" TextColor="#E900FF"/>
-                    <Label Text="{Binding Card.Legenda}" 
-                           FontSize="23" FontAttributes="Italic" TextColor="#555"/>
-                    <StackLayout Orientation="Horizontal">
-                        <Switch IsToggled="False" HorizontalOptions="Center" Scale="1.7" Margin="10,10,10,10"/>
-                        <Label Text="{Binding Card.Pontos}" VerticalOptions="CenterAndExpand"
-                               FontSize="25" TextColor="#555"/>
-                        <Label Text="Pontos" VerticalOptions="CenterAndExpand"
-                               FontSize="25" TextColor="#555"/>
+                    <StackLayout Orientation="Horizontal" HeightRequest="45" Padding="0">
+                        <Label Text="{Binding Game.CurrentPlayer.Name, StringFormat='{0}'}" Margin="25,0,0,0"
+                               FontSize="35" VerticalOptions="End" TextColor="{Binding Color}"
+                               FontAttributes="Bold" IsVisible="{Binding Visible[0]}"/>
+                        <Label Text="{Binding Game.CurrentPlayer.Points, StringFormat='{0} Pontos'}" Margin="0,0,0,0"
+                               FontSize="30" VerticalOptions="End" TextColor="{Binding Color}"
+                               HorizontalOptions="CenterAndExpand" IsVisible="{Binding Visible[0]}"/>
+
+                        <Button Text="Placar" HorizontalOptions="EndAndExpand" CornerRadius="10" Margin="4"
+                                Command="{Binding GoToScoreBoard}" BackgroundColor="{Binding Color}"/>
                     </StackLayout>
+                    
 
-                    <Rectangle HeightRequest="2" BackgroundColor="#E900FF" Margin="0,0,0,10"/>
+                    <!-- Desafio -->
+                    
+                    <Frame Margin="10,10,10,10" CornerRadius="20" IsVisible="{Binding Visible[0]}"
+                               BorderColor="{Binding Color}" HeightRequest="-1">
+                        <StackLayout>
+                            <Label Text="{Binding Card.Tipo}" FontSize="20" HorizontalOptions="Center"/>
+                            <Label Text="{Binding CardName}" 
+                                       VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
+                                       FontSize="30" FontAttributes="Bold" TextColor="{Binding Color}"/>
+                            <Label Text="{Binding Card.Legenda}" 
+                                       FontSize="23" FontAttributes="Italic" TextColor="#555"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Switch IsToggled="{Binding PointsSwich, Mode=TwoWay}"
+                                        OnColor="{Binding Color}" ThumbColor="{Binding Color}"
+                                        HorizontalOptions="Center" Scale="1.7" Margin="10,10,10,10"/>
+                                <Label Text="{Binding Card.Pontos}" VerticalOptions="CenterAndExpand"
+                                           FontSize="25" TextColor="#555"/>
+                                <Label Text="Pontos" VerticalOptions="CenterAndExpand"
+                                           FontSize="25" TextColor="#555"/>
+                            </StackLayout>
 
-                    <Label Text="Beba para ganhar mais pontos!"  
-                           FontSize="23" TextColor="#555"/>
-                    <StackLayout Orientation="Horizontal">
-                        <Switch IsToggled="False" HorizontalOptions="Center" Scale="1.7" Margin="10,10,10,10"/>
-                        <Label Text="{Binding Card.Shots}" VerticalOptions="CenterAndExpand"
-                               FontSize="25" TextColor="#555"/>
-                        <Label Text="Pontos" VerticalOptions="CenterAndExpand"
-                               FontSize="25" TextColor="#555"/>
-                    </StackLayout>
+                            <Rectangle HeightRequest="2" BackgroundColor="{Binding Color}" Margin="0,0,0,10"/>
+
+                            <Label Text="Beba para ganhar mais pontos!"  
+                                       FontSize="23" TextColor="#555"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Switch IsToggled="{Binding ShotsSwitch, Mode=TwoWay}" 
+                                        OnColor="{Binding Color}" ThumbColor="{Binding Color}"
+                                        HorizontalOptions="Center" Scale="1.7" Margin="10,10,10,10"/>
+                                <Label Text="{Binding Card.Shots}" VerticalOptions="CenterAndExpand"
+                                           FontSize="25" TextColor="#555"/>
+                                <Label Text="Pontos" VerticalOptions="CenterAndExpand"
+                                           FontSize="25" TextColor="#555"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+
+                    <!-- Jogo -->
+                    <Frame IsVisible="{Binding Visible[1]}" Margin="10,10,10,10" CornerRadius="20"
+                           Padding="10" BackgroundColor="#F7F7F7">
+                        <Frame CornerRadius="20" BorderColor="PaleVioletRed">
+                            <StackLayout>
+                                <Label Text="{Binding Card.Tipo}" FontSize="20" HorizontalOptions="Center"/>
+                                <Label Text="{Binding CardName}" 
+                                       VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
+                                       FontSize="40" FontAttributes="Bold" TextColor="PaleVioletRed"
+                                       HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Card.Legenda}" 
+                                       FontSize="23" FontAttributes="Italic" TextColor="#555"/>
+                            </StackLayout>
+                        </Frame>
+                    </Frame>
+                    
+
+                    <!-- RNG -->
+                    <Frame Margin="10,10,10,10" CornerRadius="20" Padding="10"
+                            IsVisible="{Binding Visible[2]}" BackgroundColor="#F7F7F7">
+                        <Frame CornerRadius="20" BorderColor="LightGreen">
+                            <StackLayout>
+                                <Label Text="{Binding Card.Tipo}" FontSize="20" HorizontalOptions="Center"/>
+
+                                <Label Text="{Binding CardName}" 
+                                       VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
+                                       FontSize="40" FontAttributes="Bold" TextColor="LightGreen"
+                                       HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Card.Legenda}" 
+                                       FontSize="23" FontAttributes="Italic" TextColor="#555"/>
+                            </StackLayout>
+                        </Frame>
+                    </Frame>
+                    
+
+                    <!-- RNG -->
+                    <Frame Margin="10,10,10,10" CornerRadius="20" Padding="10" 
+                           IsVisible="{Binding Visible[3]}" BackgroundColor="#F7F7F7">
+                        <Frame CornerRadius="20" BorderColor="OrangeRed" 
+                               HeightRequest="-1" VerticalOptions="CenterAndExpand">
+                            <StackLayout>
+                                <Label Text="{Binding Card.Tipo}" FontSize="20" HorizontalOptions="Center"/>
+                                <Label Text="{Binding CardName}" 
+                                       VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
+                                       FontSize="40" FontAttributes="Bold" TextColor="OrangeRed"/>
+                                <Label Text="{Binding Card.Legenda}" 
+                                       FontSize="23" FontAttributes="Italic" TextColor="#555"/>
+                            </StackLayout>
+                        </Frame>
+                    </Frame>
+                    
                 </StackLayout>
-            </Frame>
+            </ScrollView>
 
-            <!-- Jogo -->
-            <Frame Margin="10,60,10,10" CornerRadius="20" IsVisible="{Binding Visible[1]}"
-                   BorderColor="#E900FF" HeightRequest="-1">
-                <StackLayout>
-                    <Label Text="{Binding Card.Tipo}" FontSize="20" HorizontalOptions="End"/>
-                    <Label Text="{Binding Card.Nome}" 
-                           VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
-                           FontSize="40" FontAttributes="Bold" TextColor="#E900FF"/>
-                    <Label Text="{Binding Card.Legenda}" 
-                           FontSize="23" FontAttributes="Italic" TextColor="#555"/>
-                </StackLayout>
-            </Frame>
-
-            <!-- RNG -->
-            <Frame Margin="10,60,10,10" CornerRadius="20" IsVisible="{Binding Visible[2]}"
-                   BorderColor="#E900FF" HeightRequest="-1">
-                <StackLayout>
-                    <Label Text="{Binding Card.Tipo}" FontSize="20" HorizontalOptions="End"/>
-                    <Label Text="O Universo escolheu..." FontSize="22"/>
-                    <Label Text="{Binding Card.Nome}" 
-                           VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
-                           FontSize="40" FontAttributes="Bold" TextColor="#E900FF"/>
-                    <Label Text="{Binding Card.Legenda}" 
-                           FontSize="23" FontAttributes="Italic" TextColor="#555"/>
-                </StackLayout>
-            </Frame>
-
-            <!-- RNG -->
-            <Frame Margin="10,60,10,10" CornerRadius="20" IsVisible="{Binding Visible[3]}"
-                   BorderColor="#E900FF" HeightRequest="-1">
-                <StackLayout>
-                    <Label Text="{Binding Card.Tipo}" FontSize="20" HorizontalOptions="End"/>
-                    <Label Text="O Universo escolheu..." FontSize="22"/>
-                    <Label Text="{Binding Card.Nome}" 
-                           VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
-                           FontSize="40" FontAttributes="Bold" TextColor="#E900FF"/>
-                    <Label Text="{Binding Card.Legenda}" 
-                           FontSize="23" FontAttributes="Italic" TextColor="#555"/>
-                </StackLayout>
-            </Frame>
-            
-            
             <Button Text="PROXIMA" Command="{Binding NextCommand}"
+                    BackgroundColor="{Binding Color}"
                     FontSize="Large" FontAttributes="Bold" 
-                    VerticalOptions="EndAndExpand" HeightRequest="70" />
+                    VerticalOptions="EndAndExpand" HeightRequest="60"
+                    Margin="0" Clicked="Button_Clicked"/>
 
         </StackLayout>
     </ContentPage.Content>

@@ -3,17 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DrinkingGame.Views.MainPage"
              xmlns:vm="clr-namespace:DrinkingGame.ViewModels"
-             Title="{Binding Title}"
-             Shell.NavBarIsVisible="true">
+             Title="{Binding Title}">
     <ContentPage.BindingContext>
         <vm:MainViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Untitled Boose Game" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="50" Padding="10,20,0,-10"/>
-            <Label Text="Sim, eu copiei o iPuke" Padding="25,0,0,0" FontSize="20"/>
+            
+            <Frame Margin="10,20,10,0" CornerRadius="25" BorderColor="{StaticResource Primary}" HasShadow="True">
+                <Label Text="Untitled Boose Game" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+                FontAttributes="Bold" FontSize="50" TextColor="{StaticResource Primary}"/>
+            </Frame>
+
+            
+            <Label Text="Um Jogo fudas que é uma cópia barata do iPuke" FontSize="20"
+                   Margin="15,8,15,0" FontAttributes="Italic" HorizontalTextAlignment="Center"/>
+
             <Button CornerRadius="30" WidthRequest="250" Text="JOGAR" HorizontalOptions="Center"
                     FontAttributes="Bold" FontSize="20" Margin="0,30,0,0" Command="{Binding StartGame}"/>
+            
+            <Button CornerRadius="30" WidthRequest="250" Text="Baralhos" HorizontalOptions="Center"
+                    FontAttributes="Bold" FontSize="20" Margin="0,10,0,0" Command="{Binding CreateCard}"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

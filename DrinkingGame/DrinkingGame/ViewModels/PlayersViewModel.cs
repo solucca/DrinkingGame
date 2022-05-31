@@ -1,18 +1,19 @@
 ﻿using DrinkingGame.Views;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using DrinkingGame.Services;
 
 namespace DrinkingGame.ViewModels
 {
-    internal class PlayersViewModel : INotifyPropertyChanged
+    internal class PlayersViewModel : BaseViewModel
     {
+
+        private Game Game = (Application.Current as App).Game;
         public string[] Players {
-            get { 
+            get 
+            { 
                 return _players; 
             }
             set
@@ -20,19 +21,32 @@ namespace DrinkingGame.ViewModels
                 if (value != _players)
                 {
                     _players = value;
-                    RaisePropertyChanged();
+                    OnPropertyChanged(nameof(Players));
                 }
             }
         }
-        public event PropertyChangedEventHandler PropertyChanged;
+
+        private int _maxPoints;
+        public int MaxPoints { 
+            get => _maxPoints;
+            set
+            {
+                _maxPoints = value;
+                OnPropertyChanged(nameof(MaxPoints));
+            }
+        }
+
         public string[] _players { get; set; }
         private int count_players = 2;
 
         public ICommand StartGame { get; }
         public ICommand RemovePlayer { get; }
         public ICommand AddPlayer { get; }
+
+
         public PlayersViewModel()
         {
+            MaxPoints = 40;
             Players = new string[10];
             StartGame = new Command(startGame);
             RemovePlayer = new Command(removePlayer);
@@ -56,7 +70,7 @@ namespace DrinkingGame.ViewModels
         {
             int i = 0;
 
-            if (!(Players[0] is null && Players[1] is null))
+            if (!(Players[0] is null || Players[1] is null))
             {
                 foreach (var item in Players)
                 {
@@ -69,21 +83,14 @@ namespace DrinkingGame.ViewModels
 
             if (i == count_players)
             {
-                Console.WriteLine("Tudo Certo");
-                (Application.Current as App).players.Add_player(Players);
-                await Shell.Current.GoToAsync(nameof(CardPage));
+                Game.SetPlayer(Players);
+                await Shell.Current.GoToAsync(nameof(CardPage), true);
+                Game.Goal = MaxPoints;
             }
             else
             {
                 Console.WriteLine(i.ToString());
                 Console.WriteLine(count_players.ToString());
-            }
-        }
-        protected void RaisePropertyChanged([CallerMemberName] string caller = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(caller));
             }
         }
     }

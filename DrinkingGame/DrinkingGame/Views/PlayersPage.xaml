@@ -2,40 +2,79 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DrinkingGame.Views.PlayersPage"
-             xmlns:vm="clr-namespace:DrinkingGame.ViewModels"
-             Shell.NavBarIsVisible="true">
+             xmlns:vm="clr-namespace:DrinkingGame.ViewModels">
     <ContentPage.BindingContext>
         <vm:PlayersViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <ScrollView Padding="0,0,0,10">
-                <StackLayout>
-                <Grid Margin="10,10,10,0">
-                    <Button Text="Adicionar Jogador" Clicked="Add" Grid.Column="0" Command="{Binding AddPlayer}"/>
-                        <Button Text="Remover Jogador" Clicked="Remove" Grid.Column="1" Command="{Binding RemovePlayer}"/>
-                </Grid>
-            
-                <Frame BorderColor="#E900FF" CornerRadius="20" Margin="10,10,10,10">
-                    <StackLayout>
-                        <Label Text="Jogadores:" FontSize="Title" FontAttributes="Bold" TextColor="#555"/>
-                            <Entry x:Name="entry1" Text="{Binding Players[0], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 1..." />
-                            <Entry x:Name="entry2" Text="{Binding Players[1], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 2..." />
-                            <Entry x:Name="entry3" Text="{Binding Players[2], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 3..." IsVisible="false"/>
-                            <Entry x:Name="entry4" Text="{Binding Players[3], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 4..." IsVisible="false"/>
-                            <Entry x:Name="entry5" Text="{Binding Players[4], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 5..." IsVisible="false"/>
-                            <Entry x:Name="entry6" Text="{Binding Players[5], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 6..." IsVisible="false"/>
-                            <Entry x:Name="entry7" Text="{Binding Players[6], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 7..." IsVisible="false"/>
-                            <Entry x:Name="entry8" Text="{Binding Players[7], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 8..." IsVisible="false"/>
-                            <Entry x:Name="entry9" Text="{Binding Players[8], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 9..." IsVisible="false"/>
-                            <Entry x:Name="entry10" Text="{Binding Players[9], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 10..." IsVisible="false"/>
-                    </StackLayout>
-                    </Frame>
+            <Frame  BackgroundColor="{StaticResource Primary}">
+                <Label Text="JOGADORES" FontSize="30" FontAttributes="Bold" 
+                       HorizontalTextAlignment="Center" TextColor="White"/>
+            </Frame>
 
-                    <Button Text="Começar Jogo" Margin="10,10,10,20" CornerRadius="30"
-                            FontAttributes="Bold" FontSize="20" Command="{Binding StartGame}" />
+            <StackLayout Margin="30,5,30,0" Orientation="Horizontal">
+
+                <ImageButton Clicked="Remove" Command="{Binding RemovePlayer}"
+                             HorizontalOptions="Start" Source="Minus"
+                             WidthRequest="50" CornerRadius="25" HeightRequest="50"
+                             BorderWidth="3" BorderColor="{StaticResource Primary}"
+                             BackgroundColor="Transparent"/>
+
+                <ImageButton Clicked="Add" Command="{Binding AddPlayer}"
+                             HorizontalOptions="EndAndExpand" Source="Plus"
+                             WidthRequest="50" CornerRadius="25" HeightRequest="50"
+                             BorderWidth="3" BorderColor="{StaticResource Primary}"
+                             BackgroundColor="Transparent"/>
+            </StackLayout>
+
+            <ScrollView>
+                <StackLayout Padding="0,10,0,10">
+                    <Frame BorderColor="{StaticResource Player0}" CornerRadius="20" Margin="8,0,8,0" x:Name="entry1">
+                        <Entry Text="{Binding Players[0], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 1..."/>
+                    </Frame>
+                    <Frame BorderColor="{StaticResource Player1}" CornerRadius="20" Margin="8,0,8,0" IsVisible="true" x:Name="entry2">
+                        <Entry Text="{Binding Players[1], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 2..."/>
+                    </Frame>
+                    <Frame BorderColor="{StaticResource Player2}" CornerRadius="20" Margin="8,0,8,0" IsVisible="false" x:Name="entry3">
+                        <Entry Text="{Binding Players[2], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 3..."/>
+                    </Frame>
+                    <Frame BorderColor="{StaticResource Player3}" CornerRadius="20" Margin="8,0,8,0" IsVisible="false" x:Name="entry4">
+                        <Entry Text="{Binding Players[3], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 4..."/>
+                    </Frame>
+                    <Frame BorderColor="{StaticResource Player4}" CornerRadius="20" Margin="8,0,8,0" IsVisible="false" x:Name="entry5">
+                        <Entry Text="{Binding Players[4], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 5..."/>
+                    </Frame>
+                    <Frame BorderColor="{StaticResource Player5}" CornerRadius="20" Margin="8,0,8,0" IsVisible="false" x:Name="entry6">
+                        <Entry Text="{Binding Players[5], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 6..."/>
+                    </Frame>
+                    <Frame BorderColor="{StaticResource Player6}" CornerRadius="20" Margin="8,0,8,0" IsVisible="false" x:Name="entry7">
+                        <Entry Text="{Binding Players[6], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 7..."/>
+                    </Frame>
+                    <Frame BorderColor="{StaticResource Player7}" CornerRadius="20" Margin="8,0,8,0" IsVisible="false" x:Name="entry8">
+                        <Entry Text="{Binding Players[7], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 8..."/>
+                    </Frame>
+                    <Frame BorderColor="{StaticResource Player8}" CornerRadius="20" Margin="8,0,8,0" IsVisible="false" x:Name="entry9">
+                        <Entry Text="{Binding Players[8], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 9..."/>
+                    </Frame>
+                    <Frame BorderColor="{StaticResource Player9}" CornerRadius="20" Margin="8,0,8,0" IsVisible="false" x:Name="entry10">
+                        <Entry  Text="{Binding Players[9], Mode=TwoWay}" ReturnType="Next" Placeholder="Maluquete 10..."/>
+                    </Frame>
                 </StackLayout>
             </ScrollView>
-        </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="EndAndExpand" Margin="0,0,0,10">
+                <Label Text="Pontos:" VerticalOptions="CenterAndExpand" FontSize="30"
+                       HorizontalOptions="StartAndExpand"/>
+                <Entry Text="{Binding MaxPoints, Mode=TwoWay}" Keyboard="Numeric"
+                       HorizontalOptions="StartAndExpand"
+                       WidthRequest="60" HorizontalTextAlignment="Center" FontSize="30"/>
+                <Button Text="Começar" Margin="0,5,0,5" CornerRadius="15" HorizontalOptions="End"
+                            FontAttributes="Bold" FontSize="20" Command="{Binding StartGame}" />
+            </StackLayout>
+            
+            
+            </StackLayout>
     </ContentPage.Content>
 </ContentPage>

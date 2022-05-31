@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrinkingGame.Views.CreateCardPage"
+             xmlns:vm="clr-namespace:DrinkingGame.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:CreateCardViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="{StaticResource Primary}" Padding="5,0,5,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="80"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" 
+                            WidthRequest="50" HeightRequest="50"
+                            Text="&lt;" FontAttributes="Bold" FontSize="30" 
+                            VerticalOptions="Center"/>
+                    <Label Grid.Column="1"
+                           Text="Menu" TextColor="White" FontSize="30" FontAttributes="Bold" 
+                           VerticalOptions="CenterAndExpand" HeightRequest="50" Margin="0" VerticalTextAlignment="Center"/>
+                    <Button Grid.Column="2"
+                            WidthRequest="50" HeightRequest="50"
+                            Text="+" FontAttributes="Bold" FontSize="30"
+                            VerticalOptions="Center"  HorizontalOptions="EndAndExpand"/>
+                </Grid>
+            </Frame>
+            
+            <ScrollView Padding="0,0,0,10">
+                <Frame Margin="10,10,10,10" CornerRadius="20" IsVisible="{Binding TipoVisible[0]}"
+                               BorderColor="CornflowerBlue" HeightRequest="-1">
+                    <StackLayout>
+                        <Label Text="{Binding Tipo}" FontSize="20" HorizontalOptions="Center"/>
+                        <Editor Text="Teste te escrita texto muito grande para caber nisso" 
+                            VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
+                            MaxLength="55"
+                            HeightRequest="140" WidthRequest="300" BackgroundColor="#F1F1F1"
+                            FontSize="30" FontAttributes="Bold" TextColor="CornflowerBlue"/>
+                        <Editor Text="Legenda" HeightRequest="79" WidthRequest="300"
+                            BackgroundColor="#F1F1F1" MaxLength="50"
+                            FontSize="23" FontAttributes="Italic" TextColor="#555"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Switch  OnColor="CornflowerBlue" ThumbColor="CornflowerBlue"
+                                 HorizontalOptions="Center" Scale="1.7" Margin="10,10,10,10"/>
+                            <Entry Text="2" VerticalOptions="CenterAndExpand"
+                               FontSize="25" TextColor="#555" Keyboard="Numeric"/>
+                            <Label Text="Pontos" VerticalOptions="CenterAndExpand"
+                                           FontSize="25" TextColor="#555"/>
+                        </StackLayout>
+
+                        <Rectangle HeightRequest="2" BackgroundColor="CornflowerBlue" Margin="0,0,0,10"/>
+
+                        <Label Text="Beba para ganhar mais pontos!"  
+                                       FontSize="23" TextColor="#555"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Switch OnColor="CornflowerBlue" ThumbColor="CornflowerBlue"
+                                HorizontalOptions="Center" Scale="1.7" Margin="10,10,10,10"/>
+                            <Entry Text="2" VerticalOptions="CenterAndExpand" Keyboard="Numeric"
+                               FontSize="25" TextColor="#555"/>
+                            <Label Text="Pontos" VerticalOptions="CenterAndExpand"
+                                           FontSize="25" TextColor="#555"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </ScrollView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

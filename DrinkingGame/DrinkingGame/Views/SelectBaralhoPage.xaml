@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrinkingGame.Views.SelectBaralhoPage"
+             xmlns:vm="clr-namespace:DrinkingGame.ViewModels"
+             xmlns:converter="clr-namespace:DrinkingGame.Services">
+    
+    <ContentPage.BindingContext>
+        <vm:SelectBaralhosViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:CleanFileName x:Key="clear" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Selectione Baralhos" Margin="10" FontSize="30" TextColor="{StaticResource Primary}"/>
+            </StackLayout>
+            <ScrollView>
+                <StackLayout BindableLayout.ItemsSource="{Binding Baralhos}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Margin="5,0,5,10" CornerRadius="10" BorderColor="{StaticResource Primary}">
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding Filename}" Scale="0.17" Margin="-230"/>
+                                        <Label Text="{Binding Nome}" FontAttributes="Bold" 
+                                               FontSize="35" VerticalOptions="Center"
+                                               Margin="10"/>
+                                    </StackLayout>
+                                    
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Descr}" FontSize="18"/>
+                                        <CheckBox IsChecked="{Binding Selected}"/>
+                                    </StackLayout>
+                                    <Label Text="{Binding Count, StringFormat='{0} Cartas'}" 
+                                           HorizontalOptions="EndAndExpand" FontSize="15"
+                                           FontAttributes="Italic"/>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+            <Button Text="PROXIMO" FontAttributes="Bold" FontSize="25" VerticalOptions="EndAndExpand" 
+                    Command="{Binding Next}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

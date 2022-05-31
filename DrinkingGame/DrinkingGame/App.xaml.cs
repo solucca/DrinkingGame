@@ -8,15 +8,13 @@ namespace DrinkingGame
 {
     public partial class App : Application
     {
-        public Players players = new Players();
+        public Game Game { get; set; }
 
         public App()
         {
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
-            
             MainPage = new AppShell();
+            Game = new Game();
         }
 
         protected override void OnStart()

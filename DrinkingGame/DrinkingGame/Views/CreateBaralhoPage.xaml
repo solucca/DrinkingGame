@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DrinkingGame.Views.CreateBaralhoPage"
+             xmlns:vm="clr-namespace:DrinkingGame.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:CreateBaralhoViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="{StaticResource Primary}" 
+                   Padding="5,5,10,5" HasShadow="True">
+                <StackLayout Orientation="Horizontal" HeightRequest="-1">
+                    
+                    <Button Text="&lt;" FontAttributes="Bold" FontSize="30"
+                            WidthRequest="60" Command="{Binding CreateCard}"/>
+                    
+                    <Entry Text="{Binding Baralho.Nome, Mode=OneWayToSource}" VerticalOptions="Start"
+                           Placeholder="NovoBaralho" FontSize="35" 
+                           TextColor="White" FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+                </StackLayout>
+            </Frame>
+            <ScrollView>
+                <StackLayout>
+                    <Frame CornerRadius="5" BorderColor="LightGray"
+                           Margin="8,0,8,0">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CreateCard}"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="Criar Carta"/>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

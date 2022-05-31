@@ -20,5 +20,10 @@ namespace DrinkingGame.Views
         {
             return true;
         }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

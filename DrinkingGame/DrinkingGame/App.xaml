@@ -8,6 +8,18 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#E900FF</Color>
+            
+            <Color x:Key="Player0">#F47C7C</Color>
+            <Color x:Key="Player1">#66CCCC</Color>
+            <Color x:Key="Player2">#A1DE93</Color>
+            <Color x:Key="Player3">#8A57F0</Color>
+            <Color x:Key="Player4">#FFB266</Color>
+            <Color x:Key="Player5">#FF66CC</Color>
+            <Color x:Key="Player6">#CEA27A</Color>
+            <Color x:Key="Player7">#66CCCC</Color>
+            <Color x:Key="Player8">#EFE978</Color>
+            <Color x:Key="Player9">#CCFF99</Color>
+
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">

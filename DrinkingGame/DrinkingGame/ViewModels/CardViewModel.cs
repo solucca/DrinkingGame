@@ -1,93 +1,123 @@
 ﻿using DrinkingGame.Models;
+using DrinkingGame.Services;
+using DrinkingGame.Views;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace DrinkingGame.ViewModels
 {
-    internal class CardViewModel : INotifyPropertyChanged
+
+    internal class CardViewModel : BaseViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         public ICommand NextCommand { get; private set; }
-        private CardDeck _deck;
-        private Card _card;
-        public Card Card {
-            get
-            {
-                return _card;
-            }
+        public ICommand GoToScoreBoard { get ; private set; }
+        public Card Card { get => (Application.Current as App).Game.Deck.Current; }
+        public string[] Visible { get => GetVisibility(Card); }
+        public Game Game { get => (Application.Current as App).Game;}
+        public List<Player> Players { get => (Application.Current as App).Game.Players; }
+        public bool ShotsSwitch 
+        { 
+            get => _shotsSwitch;
             set
             {
-                _card = value;
-                OnPropertyChanged(nameof(Card));
+                _shotsSwitch = value;
+                OnPropertyChanged(nameof(ShotsSwitch));
             }
         }
-        public string Player
+        public bool PointsSwich
         {
-            get
-            {
-                return _player;
-            }
+            get => _pointsSwich;
             set
             {
-                if (_player != value)
-                {
-                    _player = value;
-                    OnPropertyChanged(nameof(Player));
-                }
+                _pointsSwich = value;
+                OnPropertyChanged(nameof(PointsSwich));
             }
         }
-        private string _player;
-        public string[] Visible { 
-            get { return _visible; }
-            set
-            {
-                if (_visible != value)
-                {
-                    _visible = value;
-                    OnPropertyChanged(nameof(Visible));
-                }
-            }
-        }
-        private string[] _visible;
+        public string CardName { get => FormatName(Card.Nome); }
+        public string Color { get => GetColor(); }
+
+        private bool _shotsSwitch;
+        private bool _pointsSwich;
+
         public CardViewModel()
         {
-            _deck = new CardDeck();
-            Player = (Application.Current as App).players.Atual;
-            Card = _deck.cards[_deck.current];
-            switch (Card.Tipo){
-                case "Desafio": Visible = new string[] { "True", "False", "False", "False" };break;
-                case "Jogo": Visible = new string[] { "False", "True", "False", "False" }; break;
-                case "RNG": Visible = new string[] { "False", "False", "True", "False" }; break;
-                case "Regra": Visible = new string[] { "False", "False", "False", "True" }; break;
+            NextCommand = new Command(NextCard);
+            GoToScoreBoard = new Command(async () => { await Shell.Current.GoToAsync(nameof(ScoreboardPage)); });
+            ShotsSwitch = false;
+            PointsSwich = false;
+        }
+
+        public async void NextCard()
+        {
+
+            int Shots = 0, Points = 0;
+            if (ShotsSwitch)
+            {
+                Shots = Card.Shots;
+            }
+            if (PointsSwich)
+            {
+                Points = Card.Pontos;
+            }
+            bool won = Game.PassTurn(Shots, Points);
+            if (won)
+            {
+                await Shell.Current.GoToAsync(nameof(WinnerPage));
+            }
+            ShotsSwitch = false;
+            PointsSwich = false;
+            OnPropertyChanged(nameof(Game));
+            OnPropertyChanged(nameof(Card));
+            OnPropertyChanged(nameof(Visible));
+            OnPropertyChanged(nameof(Players));
+            OnPropertyChanged(nameof(CardName));
+            OnPropertyChanged(nameof(Color));
+        }
+
+        public string[] GetVisibility( Card Card )
+        {
+            switch (Card.Tipo)
+            {
+                case "Desafio": 
+                    return new string[] { "True", "False", "False", "False" }; 
+                case "Jogo": 
+                    return new string[] { "False", "True", "False", "False" };
+                case "RNG": 
+                    return new string[] { "False", "False", "True", "False" };
+                case "Regra": 
+                    return new string[] { "False", "False", "False", "True" };
             }
 
-            NextCommand = new Command(() =>
-            {
-                _deck.current++;
-                Card = _deck.cards[_deck.current];
-                (Application.Current as App).players.PassTurn();
-                Player = (Application.Current as App).players.Atual;
-                switch (Card.Tipo)
-                {
-                    case "Desafio": Visible = new string[] { "True", "False", "False", "False" }; break;
-                    case "Jogo": Visible = new string[] { "False", "True", "False", "False" }; break;
-                    case "RNG": Visible = new string[] { "False", "False", "True", "False" }; break;
-                    case "Regra": Visible = new string[] { "False", "False", "False", "True" }; break;
-                }
-            });
-
+            return null;
         }
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        
+        private string FormatName(string Nome)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-                handler(this, new PropertyChangedEventArgs(propertyName));
+            if (Nome.Contains("<jogador_x>"))
+            {
+                Player player = Game.CurrentPlayer;
+                while (player == Game.CurrentPlayer)
+                {
+                    var random = new Random();
+                    int index = random.Next(Players.Count);
+                    player = Players[index];
+                }
+                return Nome.Replace("jogador_x", player.Name);
+            }
+            return Nome;
         }
 
+        public string GetColor()
+        {
+            string color = ColorConverter.PlayerColors[Game.CurrentPlayer.Id];
+            string type = Game.Deck.Current.Tipo;
+            if (ColorConverter.TypeColors.ContainsKey(type))
+            {
+                return ColorConverter.TypeColors[type];
+            }
+            return color;
+        }
     }
 }
