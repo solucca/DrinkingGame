@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using DrinkingGame.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,8 +15,9 @@ namespace DrinkingGame.Views
             InitializeComponent();
             max_players = 10;
             current = 2;
+            BindingContext = new PlayersViewModel();
         }
-        void Add(System.Object sender, System.EventArgs e)
+        void Add(Object sender, System.EventArgs e)
         {
             if (current < max_players)
             {
@@ -38,7 +35,7 @@ namespace DrinkingGame.Views
                 }
             }
         }
-        void Remove(System.Object sender, System.EventArgs e)
+        void Remove(Object sender, System.EventArgs e)
         {
             if (current > 2)
             {
@@ -55,6 +52,12 @@ namespace DrinkingGame.Views
                 }
                 current--;
             }
+        }
+
+        private async void StartGame(object sender, System.EventArgs e)
+        {
+            ((PlayersViewModel)BindingContext).StartGame();
+            await Navigation.PushAsync( new CardPage() );
         }
     }
 }

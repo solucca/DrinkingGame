@@ -25,6 +25,10 @@ namespace DrinkingGame.Models
         {
             Cards.AddRange(cards);
         }
+        public void AddBaralho(Baralho baralho)
+        {
+            Cards.AddRange(baralho.Cards);
+        }
 
         public void Shuffle()
         {

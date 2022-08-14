@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -10,97 +11,31 @@ namespace DrinkingGame.Services
     public class Game
     {
         public Player CurrentPlayer { get => Players[IndexPlayer]; }
+        public List<Player> Players { get; set; }
         public CardDeck Deck { get; private set; }
-        public Dictionary<string, Baralho> Baralhos { get; private set; }
         public int Goal { get; set; }
+        public event EventHandler<bool> GameWon;
 
         int IndexPlayer = 0;
-        public List<Player> Players;
-
+        
         public Game()
         {
             Players = new List<Player>();
             Goal = 40;
-            GetBaralhos();
         }
 
-        public bool BuildDeck()
+        public bool BuildDeck(ICollection<Baralho> baralhos)
         {
-            int i = 0;
+            if (baralhos.Count == 0)
+                return false;
+
             Deck = new CardDeck();
-            foreach(Baralho bar in Baralhos.Values)
+            foreach ( Baralho baralho in baralhos)
             {
-                if (bar.Selected)
-                {
-                    Deck.AddBaralho(bar.Cards);
-                    i++;
-                }
+                Deck.AddBaralho(baralho);
             }
-            
-            if (i > 0)
-            {
-                Deck.Shuffle();
-                return true;
-            }
-            return false;
-        }
-
-        private void GetBaralhos()
-        {
-            Baralhos = new Dictionary<string, Baralho>();
-            Card card;
-            var assembly = Assembly.GetExecutingAssembly();
-
-            Stream stream = assembly.GetManifestResourceStream("DrinkingGame.Resources.Cards.txt");
-            string line = "";
-            string[] fields;
-            using (var reader = new StreamReader(stream, Encoding.GetEncoding("iso-8859-1"), true))
-            {
-                reader.ReadLine(); //remove first line
-                while (reader.Peek() >= 0)
-                {
-                    line = reader.ReadLine();
-                    fields = line.Split(';');
-                    try
-                    {
-                        card = new Card(fields);
-                        if (Baralhos.ContainsKey(card.Categoria))
-                        {
-                            Baralhos[card.Categoria].Cards.Add(card);
-                        }
-                        else
-                        {
-                            Baralhos.Add(card.Categoria, new Baralho { Cards = new List<Card> { card }, 
-                                                                       Nome = card.Categoria });
-                        }
-                        
-                    }
-                    catch
-                    {
-                        continue;
-                    }
-
-                }
-            }
-            stream = assembly.GetManifestResourceStream("DrinkingGame.Resources.Baralhos.txt");
-            using (var reader = new StreamReader(stream, Encoding.GetEncoding("iso-8859-1"), true))
-            {
-                while (reader.Peek() >= 0)
-                {
-                    line = reader.ReadLine();
-                    fields = line.Split(':');
-                    try
-                    {
-                        Baralhos[fields[0]].Filename = fields[1];
-                        Baralhos[fields[0]].Descr = fields[2];
-                    }
-                    catch
-                    {
-                        continue;
-                    }
-
-                }
-            }
+            Deck.Shuffle();
+            return true;
         }
 
         public void SetPlayer(string Name, int id)
@@ -143,6 +78,7 @@ namespace DrinkingGame.Services
                 CurrentPlayer.Points += Shots + Points;
                 if (CurrentPlayer.Points >= Goal)
                 {
+                    OnGameWon(true);
                     return true;
                 }
                 IndexPlayer++;
@@ -172,6 +108,14 @@ namespace DrinkingGame.Services
                 }
             }
             return max_player;
+        }
+
+        protected virtual void OnGameWon(bool e)
+        {
+            if (GameWon != null)
+            {
+                GameWon(this, e);
+            }
         }
     }
 }

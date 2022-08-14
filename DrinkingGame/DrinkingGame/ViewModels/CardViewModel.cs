@@ -12,7 +12,6 @@ namespace DrinkingGame.ViewModels
     internal class CardViewModel : BaseViewModel
     {
         public ICommand NextCommand { get; private set; }
-        public ICommand GoToScoreBoard { get ; private set; }
         public Card Card { get => (Application.Current as App).Game.Deck.Current; }
         public string[] Visible { get => GetVisibility(Card); }
         public Game Game { get => (Application.Current as App).Game;}
@@ -44,12 +43,11 @@ namespace DrinkingGame.ViewModels
         public CardViewModel()
         {
             NextCommand = new Command(NextCard);
-            GoToScoreBoard = new Command(async () => { await Shell.Current.GoToAsync(nameof(ScoreboardPage)); });
             ShotsSwitch = false;
             PointsSwich = false;
         }
 
-        public async void NextCard()
+        public void NextCard()
         {
 
             int Shots = 0, Points = 0;
@@ -62,12 +60,10 @@ namespace DrinkingGame.ViewModels
                 Points = Card.Pontos;
             }
             bool won = Game.PassTurn(Shots, Points);
-            if (won)
-            {
-                await Shell.Current.GoToAsync(nameof(WinnerPage));
-            }
+           
             ShotsSwitch = false;
             PointsSwich = false;
+
             OnPropertyChanged(nameof(Game));
             OnPropertyChanged(nameof(Card));
             OnPropertyChanged(nameof(Visible));
@@ -76,7 +72,7 @@ namespace DrinkingGame.ViewModels
             OnPropertyChanged(nameof(Color));
         }
 
-        public string[] GetVisibility( Card Card )
+        private string[] GetVisibility( Card Card )
         {
             switch (Card.Tipo)
             {
@@ -108,8 +104,7 @@ namespace DrinkingGame.ViewModels
             }
             return Nome;
         }
-
-        public string GetColor()
+        private string GetColor()
         {
             string color = ColorConverter.PlayerColors[Game.CurrentPlayer.Id];
             string type = Game.Deck.Current.Tipo;

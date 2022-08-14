@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DrinkingGame.Views.CardPage"
-             xmlns:vm="clr-namespace:DrinkingGame.ViewModels">
+             xmlns:vm="clr-namespace:DrinkingGame.ViewModels"
+             NavigationPage.HasNavigationBar="False">
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsEnabled="False"/>
     </Shell.BackButtonBehavior>
@@ -25,7 +26,7 @@
                                HorizontalOptions="CenterAndExpand" IsVisible="{Binding Visible[0]}"/>
 
                         <Button Text="Placar" HorizontalOptions="EndAndExpand" CornerRadius="10" Margin="4"
-                                Command="{Binding GoToScoreBoard}" BackgroundColor="{Binding Color}"/>
+                                Clicked="OpenScoreboard" BackgroundColor="{Binding Color}"/>
                     </StackLayout>
                     
 
@@ -124,7 +125,7 @@
                     BackgroundColor="{Binding Color}"
                     FontSize="Large" FontAttributes="Bold" 
                     VerticalOptions="EndAndExpand" HeightRequest="60"
-                    Margin="0" Clicked="Button_Clicked"/>
+                    Margin="0"/>
 
         </StackLayout>
     </ContentPage.Content>

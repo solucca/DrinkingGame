@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,6 +11,16 @@ namespace DrinkingGame.Views
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private async void StartGame(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SelectBaralhoPage());
+        }
+
+        private async void Baralhos(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ManageBaralhosPage());
         }
     }
 }

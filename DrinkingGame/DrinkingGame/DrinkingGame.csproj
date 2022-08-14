@@ -8,6 +8,7 @@
   <ItemGroup>
     <None Remove="Resources\Baralhos.txt" />
     <None Remove="Resources\Cards.txt" />
+    <None Remove="Resources\icons.ttf" />
     <None Remove="UntitledBooseGame.xlsx" />
   </ItemGroup>
 
@@ -15,9 +16,11 @@
     <EmbeddedResource Include="Resources\Baralhos.txt" />
     <EmbeddedResource Include="Resources\Cards.txt" />
     <EmbeddedResource Include="Resources\Cards.xlsx" />
+    <EmbeddedResource Include="Resources\icons.ttf" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>

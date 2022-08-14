@@ -8,10 +8,14 @@ namespace DrinkingGame.Models
     {
         public string Nome { get; set; }
         public string Descr { get; set; }
-        public int Count { get => Cards.Count; }
         public List<Card> Cards { get; set; }
-        public bool Selected { get ; set; }
         public string Filename { get; set; }
-        
+        public int Count { get => Cards.Count; }
+    }
+
+    public class Baralho_DB
+    {
+        public string Nome { get; set; }
+        public string Descr { get; set; }
     }
 }

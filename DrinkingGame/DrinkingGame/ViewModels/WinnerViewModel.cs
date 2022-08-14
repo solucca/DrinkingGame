@@ -22,7 +22,7 @@ namespace DrinkingGame.ViewModels
 
         private async void GoBackToMenu()
         {
-            await Shell.Current.GoToAsync(nameof(MainViewModel));
+            //await Shell.Current.GoToAsync(nameof(MainViewModel));
         }
     }
 }

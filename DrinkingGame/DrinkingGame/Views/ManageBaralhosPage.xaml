@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:DrinkingGame.ViewModels"
-             x:Class="DrinkingGame.Views.ManageBaralhosPage">
+             x:Class="DrinkingGame.Views.ManageBaralhosPage"
+             NavigationPage.HasNavigationBar="False">
+    
     <ContentPage.BindingContext>
         <vm:ManageBaralhosViewModel/>
     </ContentPage.BindingContext>
@@ -12,14 +14,17 @@
             <Frame BackgroundColor="{StaticResource Primary}" 
                    Padding="5,5,10,5" HasShadow="True">
                 <StackLayout Orientation="Horizontal" HeightRequest="-1">
-                    <Button Text="&lt;" FontAttributes="Bold" FontSize="30"
-                            WidthRequest="60" HorizontalOptions="Start"/>
+                    <Button Text="&#xE802;" FontFamily="Icones"
+                            FontAttributes="Bold" FontSize="30"
+                            WidthRequest="60" HorizontalOptions="Start"
+                            Clicked="GoBack"/>
                     <Label Text="Baralhos:" VerticalOptions="Center" 
                            FontSize="35" TextColor="White" FontAttributes="Bold"
                            HorizontalOptions="CenterAndExpand"/>
-                    <Button Text="+" FontAttributes="Bold" FontSize="30"
+                    <Button Text="&#xE806;" FontFamily="Icones"
+                            FontAttributes="Bold" FontSize="30"
                             WidthRequest="60" HorizontalOptions="EndAndExpand"
-                            Command="{Binding CreateNewBaralho}"/>
+                            Clicked="CreateBaralho"/>
                 </StackLayout>
             </Frame>
 

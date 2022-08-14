@@ -2,36 +2,72 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DrinkingGame.Views.CreateBaralhoPage"
-             xmlns:vm="clr-namespace:DrinkingGame.ViewModels">
+             xmlns:vm="clr-namespace:DrinkingGame.ViewModels"
+             NavigationPage.HasNavigationBar="False">
+
     <ContentPage.BindingContext>
         <vm:CreateBaralhoViewModel/>
     </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <StackLayout>
             <Frame BackgroundColor="{StaticResource Primary}" 
                    Padding="5,5,10,5" HasShadow="True">
                 <StackLayout Orientation="Horizontal" HeightRequest="-1">
-                    
-                    <Button Text="&lt;" FontAttributes="Bold" FontSize="30"
-                            WidthRequest="60" Command="{Binding CreateCard}"/>
-                    
-                    <Entry Text="{Binding Baralho.Nome, Mode=OneWayToSource}" VerticalOptions="Start"
+
+                    <Button Text="&#xE802;" FontFamily="Icones"
+                            FontAttributes="Bold" FontSize="30"
+                            WidthRequest="60" Clicked="Button_Clicked"/>
+
+                    <Entry Text="{Binding Name, Mode=TwoWay}" VerticalOptions="Start"
                            Placeholder="NovoBaralho" FontSize="35" 
                            TextColor="White" FontAttributes="Bold"
                            HorizontalOptions="Center"/>
+
+                    <Button Text="&#xE808;" FontFamily="Icones"
+                            HorizontalOptions="EndAndExpand"
+                            FontAttributes="Bold" FontSize="30"
+                            WidthRequest="60" Clicked="Save_Clicked"/>
                 </StackLayout>
             </Frame>
-            <ScrollView>
-                <StackLayout>
-                    <Frame CornerRadius="5" BorderColor="LightGray"
+
+            <StackLayout>
+                <Frame CornerRadius="5" BorderColor="LightGray"
                            Margin="8,0,8,0">
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding CreateCard}"/>
-                        </Frame.GestureRecognizers>
-                        <Label Text="Criar Carta"/>
-                    </Frame>
-                </StackLayout>
-            </ScrollView>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="CreateCard"/>
+                    </Frame.GestureRecognizers>
+                    <Label Text="Criar Carta"/>
+                </Frame>
+
+                <ListView ItemsSource="{Binding Cards}"
+                              SelectionMode="None" HasUnevenRows="True" RowHeight="-1">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Text="Edit"/>
+                                    <MenuItem Text="Delete"/>
+                                </ViewCell.ContextActions>
+                                <StackLayout Padding="15,5,15,10">
+                                    <Label Text="{Binding Tipo}" Margin="0,0,0,-6"/>
+                                    <Label Text="{Binding Nome}" FontSize="20" TextColor="Black"/>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Legenda}" VerticalOptions="CenterAndExpand"/>
+                                        <StackLayout HorizontalOptions="EndAndExpand" WidthRequest="100">
+                                            <Label Text="{Binding Pontos, StringFormat='Pontos: {0}'}"/>
+                                            <Label Text="{Binding Shots, StringFormat='Shots: {0}'}"/>
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

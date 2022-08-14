@@ -2,33 +2,66 @@
 using Xamarin.Forms;
 using DrinkingGame.Models;
 using DrinkingGame.Views;
+using DrinkingGame.Services;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace DrinkingGame.ViewModels
 {
     public class CreateBaralhoViewModel : BaseViewModel
     {
-        public ICommand CreateCard { get; set; }
-        public Baralho Baralho { get; set; }
+        public ObservableCollection<Card> Cards { get; set; } = new ObservableCollection<Card>();
 
-        public CreateBaralhoViewModel()
+        public string Name { 
+            get => name;
+            set { name = value; OnPropertyChanged(); } 
+        }
+        private string name;
+
+        private CustomDecks CustomDecks = (Application.Current as App).CustomDecks;
+
+        public void SaveBaralho(string descr) 
         {
-            Baralho = new Baralho();
-            CreateCard = new Command(OpenCreateCardPopUp);
+            var t = new List<Card>();
+            foreach(var card in Cards) 
+            {
+                card.Baralho = Name;
+                t.Add(card); 
+
+            }
+
+            Baralho novo = new Baralho()
+            {
+                Cards = t,
+                Nome = Name,
+                Descr = descr,
+                Filename = "Custom"
+            };
+
+            CustomDecks.Baralhos.Add( novo );
+            CustomDecks.AddCards( Cards );
+            CustomDecks.AddBaralho( novo );
         }
 
-        async public void OpenCreateCardPopUp()
+        public Card CreateCard(string Tipo)
         {
-            string response = await Shell.Current.DisplayActionSheet(
-                                                "Tipo de Carta:",
-                                                "Cancelar",
-                                                null,
-                                                FlowDirection.RightToLeft,
-                                                new string[] { "Desafio", "Jogo", "Regra"}
-                                                );
-            if (response != null)
+            Card a = new Card() { Id = Cards.Count, Tipo = Tipo};
+            Cards.Add(a);
+            return a;
+        }
+
+        public void UpdateView()
+        {
+            ObservableCollection<Card> temp = new ObservableCollection<Card>();
+            foreach (Card card in Cards)
             {
-                if (response == "Cancelar") return;
-                await Shell.Current.GoToAsync($"{nameof(CreateCardPage)}?type={response}");
+                if (card.Tipo != null)
+                    temp.Add(card);
+            }
+            Cards.Clear();
+            foreach (Card card in temp)
+            {
+                Cards.Add(card);
             }
         }
     }

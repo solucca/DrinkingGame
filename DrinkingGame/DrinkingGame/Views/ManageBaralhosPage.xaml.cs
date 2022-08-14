@@ -16,5 +16,15 @@ namespace DrinkingGame.Views
         {
             InitializeComponent();
         }
+
+        private async void CreateBaralho(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync( new CreateBaralhoPage() );
+        }
+
+        private async void GoBack(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }

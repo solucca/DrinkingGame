@@ -2,10 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DrinkingGame.Views.PlayersPage"
-             xmlns:vm="clr-namespace:DrinkingGame.ViewModels">
-    <ContentPage.BindingContext>
-        <vm:PlayersViewModel/>
-    </ContentPage.BindingContext>
+             NavigationPage.HasNavigationBar="False">
+
     <ContentPage.Content>
         <StackLayout>
             <Frame  BackgroundColor="{StaticResource Primary}">
@@ -71,7 +69,7 @@
                        HorizontalOptions="StartAndExpand"
                        WidthRequest="60" HorizontalTextAlignment="Center" FontSize="30"/>
                 <Button Text="Começar" Margin="0,5,0,5" CornerRadius="15" HorizontalOptions="End"
-                            FontAttributes="Bold" FontSize="20" Command="{Binding StartGame}" />
+                            FontAttributes="Bold" FontSize="20" Clicked="StartGame" />
             </StackLayout>
             
             

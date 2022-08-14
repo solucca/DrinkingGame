@@ -39,7 +39,6 @@ namespace DrinkingGame.ViewModels
         public string[] _players { get; set; }
         private int count_players = 2;
 
-        public ICommand StartGame { get; }
         public ICommand RemovePlayer { get; }
         public ICommand AddPlayer { get; }
 
@@ -48,7 +47,7 @@ namespace DrinkingGame.ViewModels
         {
             MaxPoints = 40;
             Players = new string[10];
-            StartGame = new Command(startGame);
+
             RemovePlayer = new Command(removePlayer);
             AddPlayer = new Command(addPlayer);
         }
@@ -66,7 +65,7 @@ namespace DrinkingGame.ViewModels
                 count_players--;
             }
         }
-        public async void startGame()
+        public void StartGame()
         {
             int i = 0;
 
@@ -84,13 +83,7 @@ namespace DrinkingGame.ViewModels
             if (i == count_players)
             {
                 Game.SetPlayer(Players);
-                await Shell.Current.GoToAsync(nameof(CardPage), true);
                 Game.Goal = MaxPoints;
-            }
-            else
-            {
-                Console.WriteLine(i.ToString());
-                Console.WriteLine(count_players.ToString());
             }
         }
     }

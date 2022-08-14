@@ -1,30 +1,21 @@
 ﻿using DrinkingGame.Models;
 using DrinkingGame.Services;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Input;
+using System.Text;
 using Xamarin.Forms;
-using DrinkingGame.Views;
 
 namespace DrinkingGame.ViewModels
 {
-    public class SelectBaralhosViewModel
+    public class SelectBaralhosViewModel : BaseViewModel
     {
-        private readonly Game Game = (Application.Current as App).Game;
-        public List<Baralho> Baralhos { get; private set; }
-        public ICommand Next { get; set; }
-
+        private DefaultDecks DefaultDecks = (Application.Current as App).DefaulDecks;
+        private CustomDecks CustomDecks = (Application.Current as App).CustomDecks;
+        public List<Baralho> Baralhos { get; set; } = new List<Baralho>();
         public SelectBaralhosViewModel()
         {
-            Baralhos = Game.Baralhos.Values.ToList();
-            Next = new Command(NextPage);
-        }
-
-        async private void NextPage()
-        {
-            if ( Game.BuildDeck() )
-                await Shell.Current.GoToAsync(nameof(PlayersPage));
-
+            Baralhos.AddRange(DefaultDecks.Baralhos);
+            Baralhos.AddRange(CustomDecks.Baralhos);
         }
     }
 }
