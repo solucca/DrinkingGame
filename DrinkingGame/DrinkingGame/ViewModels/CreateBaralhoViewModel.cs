@@ -20,8 +20,44 @@ namespace DrinkingGame.ViewModels
 
         private CustomDecks CustomDecks = (Application.Current as App).CustomDecks;
 
-        public void SaveBaralho(string descr) 
+        private Baralho Baralho;
+        private string Descrição;
+        public CreateBaralhoViewModel()
         {
+        }
+        public CreateBaralhoViewModel(Baralho Baralho)
+        {
+            this.Baralho = Baralho;
+            foreach (Card card in Baralho.Cards)
+            {
+                Cards.Add(card);
+            }
+            Name = Baralho.Nome;
+        }
+        public void DeleteBaralho()
+        {
+            if (Baralho != null)
+            {
+                if (CustomDecks.Baralhos.Contains(Baralho))
+                {
+                    CustomDecks.Baralhos.Remove(Baralho);
+                    CustomDecks.RemoveCards(Baralho.Cards);
+                    CustomDecks.RemoveBaralho(Baralho);
+                    Baralho = null;
+                }
+            }
+        }
+
+        public void AddDescr(string descr)
+        {
+            Descrição = descr;
+        }
+        public int SaveBaralho() 
+        {
+            if (CustomDecks.CheckName(Name) && Baralho == null)
+            {
+                return -1;
+            }
             var t = new List<Card>();
             foreach(var card in Cards) 
             {
@@ -29,18 +65,21 @@ namespace DrinkingGame.ViewModels
                 t.Add(card); 
 
             }
-
             Baralho novo = new Baralho()
             {
                 Cards = t,
                 Nome = Name,
-                Descr = descr,
+                Descr = Descrição,
                 Filename = "Custom"
             };
+
+            DeleteBaralho(); // delete baralho antigo (Salvo na variavel Baralho)
 
             CustomDecks.Baralhos.Add( novo );
             CustomDecks.AddCards( Cards );
             CustomDecks.AddBaralho( novo );
+            Baralho = novo;
+            return 0;
         }
 
         public Card CreateCard(string Tipo)

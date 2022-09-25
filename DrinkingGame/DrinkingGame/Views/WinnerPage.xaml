@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DrinkingGame.Views.WinnerPage"
-             xmlns:vm="clr-namespace:DrinkingGame.ViewModels">
+             xmlns:vm="clr-namespace:DrinkingGame.ViewModels"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.BindingContext>
         <vm:WinnerViewModel/>
     </ContentPage.BindingContext>
@@ -20,7 +21,7 @@
             <Button Text="MENU" VerticalOptions="EndAndExpand" Margin="30" 
                     FontSize="33" FontAttributes="Bold"
                     HorizontalOptions="CenterAndExpand" CornerRadius="20"
-                    Command="{Binding GoToMenu}"/>
+                    Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

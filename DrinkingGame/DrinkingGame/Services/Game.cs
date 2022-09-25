@@ -24,6 +24,11 @@ namespace DrinkingGame.Services
             Goal = 40;
         }
 
+        public void Reset()
+        {
+            Players = new List<Player>();
+        }
+
         public bool BuildDeck(ICollection<Baralho> baralhos)
         {
             if (baralhos.Count == 0)
@@ -76,6 +81,11 @@ namespace DrinkingGame.Services
             if (Deck.Current.Tipo == "Desafio")
             {
                 CurrentPlayer.Points += Shots + Points;
+                
+                CurrentPlayer.Shots += Shots;
+                if (Points > 0)
+                    CurrentPlayer.Desafios += 1;
+
                 if (CurrentPlayer.Points >= Goal)
                 {
                     OnGameWon(true);
@@ -87,7 +97,10 @@ namespace DrinkingGame.Services
                     IndexPlayer = 0;
                 }
             }
-            Deck.DrawCard();
+            if (!Deck.DrawCard()) // if was not able to DrawCard -> Empty Deck
+            {
+                Deck.Shuffle(); // Shuffle the deck
+            }
             return false;
         }
         public Player GetWinner()

@@ -16,5 +16,17 @@ namespace DrinkingGame.Views
         {
             InitializeComponent();
         }
+
+        private async void GoBack(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+        private async void QuitGame(object sender, EventArgs e)
+        {
+            bool quit = await DisplayAlert("CUIDADO!", "Você quer mesmo sair do jogo?", "Sim", "Não");
+            if (quit)
+                await Navigation.PopToRootAsync();
+        }
     }
 }

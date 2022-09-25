@@ -19,7 +19,7 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Selectione Baralhos" Margin="10" FontSize="30" TextColor="{StaticResource Primary}"/>
+                <Label Text="Selecione Baralhos" Margin="10" FontSize="30" TextColor="{StaticResource Primary}"/>
             </StackLayout>
             <ScrollView>
                 <StackLayout BindableLayout.ItemsSource="{Binding Baralhos}">

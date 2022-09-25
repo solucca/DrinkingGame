@@ -8,7 +8,6 @@ using DrinkingGame.Services;
 
 namespace DrinkingGame.ViewModels
 {
-    [QueryProperty(nameof(Tipo), "type"), QueryProperty(nameof(Baralho), "name")]
     public class CreateCardViewModel : BaseViewModel
     {
         public string Baralho { get; set; }
@@ -17,31 +16,20 @@ namespace DrinkingGame.ViewModels
         public int Pontos { get; set; }
         public int Shots { get; set; }
 
-        public string Tipo { 
-            get => _tipo;
-            set
-            { 
-                if (_tipo != value)
-                {
-                    _tipo = value;
-                    SetCardType(value);
-                    OnPropertyChanged();
-                }
-            }
-        }
+        public string Tipo { get; set; }
         public string _tipo;
-        public string[] TipoVisible { get; set; }
+        public string[] TipoVisible { get => GetTipo(); }
 
         private Card NewCard;
         
         public CreateCardViewModel(Card newCard)
         {
             NewCard = newCard;
+            Tipo = newCard.Tipo;
         }
 
         public void SaveCard()
         {
-
             NewCard.Nome = Nome;
             NewCard.Legenda = Legenda;
             NewCard.Shots = Shots;
@@ -51,19 +39,20 @@ namespace DrinkingGame.ViewModels
         {
             NewCard.Tipo = null;
         }
-        private void SetCardType(string type)
+        private string[] GetTipo()
         {
-            if (type != null)
+            string[] result = null;
+            if (Tipo != null)
             {
-                switch (type)
+                switch (Tipo)
                 {
-                    case "Desafio": TipoVisible = new string[] { "True", "False", "False" }; break;
-                    case "Jogo": TipoVisible = new string[] { "False", "True", "False" }; break;
-                    case "Regra": TipoVisible = new string[] { "False", "False", "True" }; break;
-                    default: TipoVisible = new string[] { "False", "False", "False" }; break;
+                    case "Desafio": result = new string[] { "True", "False", "False" }; break;
+                    case "Jogo": result = new string[] { "False", "True", "False" }; break;
+                    case "Regra": result = new string[] { "False", "False", "True" }; break;
+                    default: result = new string[] { "False", "False", "False" }; break;
                 }
-                OnPropertyChanged(nameof(TipoVisible));
             }
+            return result;
         }
     }
 }

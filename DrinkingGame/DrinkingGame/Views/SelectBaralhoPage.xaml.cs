@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using DrinkingGame.Models;
 using DrinkingGame.Services;
 using DrinkingGame.ViewModels;
@@ -13,7 +14,6 @@ namespace DrinkingGame.Views
     public partial class SelectBaralhoPage : ContentPage
     {
         Game Game = (Application.Current as App).Game;
-        List<Baralho> Baralhos = (Application.Current as App).DefaulDecks.Baralhos;
 
         List<Baralho> SelectedBaralhos = new List<Baralho>();
         public SelectBaralhoPage()
@@ -36,6 +36,8 @@ namespace DrinkingGame.Views
         private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             var parent = (StackLayout)((CheckBox)sender).Parent.Parent;
+            SelectBaralhosViewModel viewModel = (SelectBaralhosViewModel)BindingContext;
+            List<Baralho> Baralhos = viewModel.Baralhos;
 
             Label test1 = (Label)parent.FindByName("Nome");
             string name = test1?.Text;

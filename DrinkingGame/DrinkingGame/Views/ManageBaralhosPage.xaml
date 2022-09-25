@@ -29,51 +29,34 @@
             </Frame>
 
 
-            <CarouselView ItemsSource="{Binding Baralhos}" IndicatorView="Indicator">
-                <CarouselView.ItemTemplate>
+            <ListView ItemsSource="{Binding Baralhos}"
+                      HasUnevenRows="True"
+                      SelectionMode="None"
+                      ItemTapped="ListView_ItemTapped">
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout>
-                            <Frame HasShadow="True"
-                                   BorderColor="DarkGray"
-                                   CornerRadius="5"
-                                   Margin="10,20,20,0"
-                                   HeightRequest="350"
-                                   WidthRequest="250"
-                                   HorizontalOptions="Center"
-                                   VerticalOptions="StartAndExpand">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
                                 <StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Image Source="{Binding Filename}" Scale="0.15" Margin="-230"/>
-                                        <Label Text="{Binding Nome}"
-                                               FontAttributes="Bold"
-                                               FontSize="35"
-                                               HorizontalOptions="Center"
-                                               VerticalOptions="Center" />
-                                    </StackLayout>
-                                    
-                                    <Rectangle HeightRequest="2" BackgroundColor="Gray" 
-                                               Margin="5"/>
-                                    <Label Text="{Binding Descr}" FontSize="25"/>
-                                    <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
-                                        <Label Text="{Binding Count, StringFormat='{0} Cartas '}"
-                                               FontSize="20" FontAttributes="Italic" VerticalOptions="Center" 
-                                               HorizontalOptions="StartAndExpand"/>
-                                        <Button Text="Detalhes" FontAttributes="Bold"
-                                                FontSize="15" CornerRadius="30"/>
-                                    </StackLayout>
-                                    
+                                    <Image Source="{Binding Filename}" Scale="0.13" Margin="-230"
+                                       Grid.Column="0"/>
+                                    <Label Text="{Binding Count, StringFormat='{0} Cartas'}"
+                                       FontSize="Default" FontAttributes="Italic"
+                                       HorizontalOptions="Center"/>
                                 </StackLayout>
-                            </Frame>
-                        </StackLayout>
+                                <StackLayout>
+                                    <Label Text="{Binding Nome}"
+                                       FontAttributes="Bold" FontSize="35"
+                                       Grid.Column="1"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Center" />
+                                    <Label Text="{Binding Descr}" FontSize="Medium"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>
-            <IndicatorView x:Name="Indicator"
-                           IndicatorColor="LightGray"
-                           SelectedIndicatorColor="DarkGray"
-                           HorizontalOptions="Center"
-                           VerticalOptions="EndAndExpand"
-                           Margin="20"/>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

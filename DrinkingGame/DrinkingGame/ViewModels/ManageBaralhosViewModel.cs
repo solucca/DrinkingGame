@@ -23,6 +23,7 @@ namespace DrinkingGame.ViewModels
             {
                 Baralhos.Add(a);
             }
+            return;
         }
     }
 }

@@ -65,8 +65,13 @@ namespace DrinkingGame.ViewModels
                 count_players--;
             }
         }
-        public void StartGame()
+        public int StartGame()
         {
+            if (MaxPoints < 2)
+            {
+                return -1;
+            }
+
             int i = 0;
 
             if (!(Players[0] is null || Players[1] is null))
@@ -80,11 +85,19 @@ namespace DrinkingGame.ViewModels
                 }
             }
 
-            if (i == count_players)
+            if (i < 2)
+            {
+                return -2;
+            }
+            else if (i == count_players)
             {
                 Game.SetPlayer(Players);
                 Game.Goal = MaxPoints;
+                return 0;
             }
+
+            return -99;
+
         }
     }
 }

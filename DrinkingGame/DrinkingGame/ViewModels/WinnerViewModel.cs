@@ -17,12 +17,6 @@ namespace DrinkingGame.ViewModels
         public WinnerViewModel()
         {
             Winner = Game.GetWinner();
-            GoToMenu = new Command(GoBackToMenu);
-        }
-
-        private async void GoBackToMenu()
-        {
-            //await Shell.Current.GoToAsync(nameof(MainViewModel));
         }
     }
 }

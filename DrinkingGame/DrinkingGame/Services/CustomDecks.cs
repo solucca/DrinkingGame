@@ -38,6 +38,7 @@ namespace DrinkingGame.Services
                 {
                     Nome = a.Nome,
                     Descr = a.Descr,
+                    Filename = "Custom",
                     Cards = GetBaralho(a.Nome)
                 });
             }
@@ -63,6 +64,31 @@ namespace DrinkingGame.Services
         public int AddCard(Card card)
         {
             return _database.Insert(card);
+        }
+        public int RemoveCards(Card card)
+        {
+            return _database.Table<Card>().Delete(x => x.Id == card.Id);
+        }
+        public int RemoveCards(IEnumerable<Card> Cards)
+        {
+            int i = 0;
+            foreach (Card card in Cards)
+            {
+                i += _database.Table<Card>().Delete(x => x.Id == card.Id);
+            }
+            return i;
+        }
+        public int RemoveBaralho(Baralho baralho)
+        {
+            return _database.Table<Baralho_DB>().Delete(x=>x.Nome == baralho.Nome);
+        }
+
+        public bool CheckName(string name)
+        {
+            Baralho_DB result = _database.Table<Baralho_DB>().FirstOrDefault(x => x.Nome == name);
+            if (result == null)
+                return false;
+            return true;
         }
     }
 }

@@ -23,44 +23,65 @@
             </Frame>
             
             <ScrollView Padding="0,0,0,10">
-                <Frame Margin="10,10,10,10" CornerRadius="20" IsVisible="{Binding TipoVisible[0]}"
-                               BorderColor="CornflowerBlue" HeightRequest="-1">
-                    <StackLayout>
-                        <Label Text="{Binding Tipo, Mode=TwoWay}" FontSize="20" HorizontalOptions="Center"/>
-                        <Editor Text="{Binding Nome, Mode=TwoWay}" Placeholder="Nome" 
-                            VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
-                            MaxLength="55" 
-                            HeightRequest="140" WidthRequest="300" BackgroundColor="#F1F1F1"
-                            FontSize="30" FontAttributes="Bold" TextColor="CornflowerBlue"/>
-                        <Editor Text="{Binding Legenda, Mode=TwoWay}" Placeholder="Legenda" 
-                                HeightRequest="79" WidthRequest="300"
-                            BackgroundColor="#F1F1F1" MaxLength="50"
-                            FontSize="23" FontAttributes="Italic" TextColor="#555"/>
-                        <StackLayout Orientation="Horizontal">
-                            <Switch  OnColor="CornflowerBlue" ThumbColor="CornflowerBlue"
-                                 HorizontalOptions="Center" Scale="1.7" Margin="10,10,10,10"/>
-                            <Entry Text="{Binding Pontos, Mode=TwoWay}" Placeholder="0"
-                                   VerticalOptions="CenterAndExpand" WidthRequest="45"
-                                   FontSize="25" TextColor="#555" Keyboard="Numeric"/>
-                            <Label Text="Pontos" VerticalOptions="CenterAndExpand"
-                                           FontSize="25" TextColor="#555"/>
-                        </StackLayout>
+                <StackLayout>
+                    <Frame Margin="10,10,10,10" CornerRadius="20" IsVisible="{Binding TipoVisible[0]}"
+                                   BorderColor="CornflowerBlue" HeightRequest="-1">
+                        <StackLayout>
+                            <Label Text="{Binding Tipo, Mode=TwoWay}" FontSize="20" HorizontalOptions="Center"/>
+                            <Editor Text="{Binding Nome, Mode=TwoWay}" Placeholder="Nome" 
+                                VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
+                                MaxLength="55" 
+                                HeightRequest="140" WidthRequest="300" BackgroundColor="#F1F1F1"
+                                FontSize="30" FontAttributes="Bold" TextColor="CornflowerBlue"/>
+                            <Editor Text="{Binding Legenda, Mode=TwoWay}" Placeholder="Legenda" 
+                                    HeightRequest="79" WidthRequest="300"
+                                BackgroundColor="#F1F1F1" MaxLength="50"
+                                FontSize="23" FontAttributes="Italic" TextColor="#555"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Switch  OnColor="CornflowerBlue" ThumbColor="CornflowerBlue"
+                                     HorizontalOptions="Center" Scale="1.7" Margin="10,10,10,10"/>
+                                <Entry Text="{Binding Pontos, Mode=TwoWay}" Placeholder="0"
+                                       VerticalOptions="CenterAndExpand" WidthRequest="45"
+                                       FontSize="25" TextColor="#555" Keyboard="Numeric"/>
+                                <Label Text="Pontos" VerticalOptions="CenterAndExpand"
+                                               FontSize="25" TextColor="#555"/>
+                            </StackLayout>
 
-                        <Rectangle HeightRequest="2" BackgroundColor="CornflowerBlue" Margin="0,0,0,10"/>
+                            <Rectangle HeightRequest="2" BackgroundColor="CornflowerBlue" Margin="0,0,0,10"/>
 
-                        <Label Text="Beba para ganhar mais pontos!"  
-                                       FontSize="23" TextColor="#555"/>
-                        <StackLayout Orientation="Horizontal">
-                            <Switch OnColor="CornflowerBlue" ThumbColor="CornflowerBlue"
-                                HorizontalOptions="Center" Scale="1.7" Margin="10,10,10,10"/>
-                            <Entry Text="{Binding Shots, Mode=TwoWay}" Placeholder="0" 
-                                   VerticalOptions="CenterAndExpand" Keyboard="Numeric"
-                                   FontSize="25" TextColor="#555" WidthRequest="45"/>
-                            <Label Text="Pontos" VerticalOptions="CenterAndExpand"
-                                   FontSize="25" TextColor="#555"/>
+                            <Label Text="Beba para ganhar mais pontos!"  
+                                           FontSize="23" TextColor="#555"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Switch OnColor="CornflowerBlue" ThumbColor="CornflowerBlue"
+                                    HorizontalOptions="Center" Scale="1.7" Margin="10,10,10,10"/>
+                                <Entry Text="{Binding Shots, Mode=TwoWay}" Placeholder="0" 
+                                       VerticalOptions="CenterAndExpand" Keyboard="Numeric"
+                                       FontSize="25" TextColor="#555" WidthRequest="45"/>
+                                <Label Text="Pontos" VerticalOptions="CenterAndExpand"
+                                       FontSize="25" TextColor="#555"/>
+                            </StackLayout>
                         </StackLayout>
-                    </StackLayout>
-                </Frame>
+                    </Frame>
+
+                    <Frame IsVisible="{Binding TipoVisible[1]}" Margin="10,10,10,10" CornerRadius="20"
+                           Padding="10" BackgroundColor="#F7F7F7">
+                        <Frame CornerRadius="20" BorderColor="PaleVioletRed">
+                            <StackLayout>
+                                <Label Text="{Binding Tipo}" FontSize="20" HorizontalOptions="Center"/>
+                                <Editor Text="{Binding Nome, Mode=TwoWay}" Placeholder="Nome" 
+                                VerticalOptions="Start" HorizontalOptions="CenterAndExpand" 
+                                MaxLength="55" 
+                                HeightRequest="140" WidthRequest="300" BackgroundColor="#F1F1F1"
+                                FontSize="30" FontAttributes="Bold" TextColor="CornflowerBlue"/>
+                                <Editor Text="{Binding Legenda, Mode=TwoWay}" Placeholder="Legenda" 
+                                    HeightRequest="79" WidthRequest="300"
+                                BackgroundColor="#F1F1F1" MaxLength="50"
+                                FontSize="23" FontAttributes="Italic" TextColor="#555"/>
+                            </StackLayout>
+                        </Frame>
+                    </Frame>
+
+                </StackLayout>
             </ScrollView>
             
         </StackLayout>

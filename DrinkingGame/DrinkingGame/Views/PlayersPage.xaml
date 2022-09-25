@@ -6,7 +6,7 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Frame  BackgroundColor="{StaticResource Primary}">
+            <Frame  BackgroundColor="{StaticResource Primary}" Padding="8">
                 <Label Text="JOGADORES" FontSize="30" FontAttributes="Bold" 
                        HorizontalTextAlignment="Center" TextColor="White"/>
             </Frame>
@@ -15,13 +15,13 @@
 
                 <ImageButton Clicked="Remove" Command="{Binding RemovePlayer}"
                              HorizontalOptions="Start" Source="Minus"
-                             WidthRequest="50" CornerRadius="25" HeightRequest="50"
+                             WidthRequest="40" CornerRadius="25" HeightRequest="40"
                              BorderWidth="3" BorderColor="{StaticResource Primary}"
                              BackgroundColor="Transparent"/>
 
                 <ImageButton Clicked="Add" Command="{Binding AddPlayer}"
                              HorizontalOptions="EndAndExpand" Source="Plus"
-                             WidthRequest="50" CornerRadius="25" HeightRequest="50"
+                             WidthRequest="40" CornerRadius="25" HeightRequest="40"
                              BorderWidth="3" BorderColor="{StaticResource Primary}"
                              BackgroundColor="Transparent"/>
             </StackLayout>

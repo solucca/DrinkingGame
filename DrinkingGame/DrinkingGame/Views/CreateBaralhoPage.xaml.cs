@@ -19,6 +19,11 @@ namespace DrinkingGame.Views
             InitializeComponent();
             BindingContext = new CreateBaralhoViewModel();
         }
+        public CreateBaralhoPage(Baralho baralho)
+        {
+            InitializeComponent();
+            BindingContext = new CreateBaralhoViewModel(baralho);
+        }
 
         protected override async void OnAppearing()
         {
@@ -29,16 +34,36 @@ namespace DrinkingGame.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+
             CreateBaralhoViewModel viewModel = (CreateBaralhoViewModel)BindingContext;
-            await Navigation.PopAsync();
+
+            bool save = await DisplayAlert("Aviso", "Você quer salvar?", "sim", "não");
+            
+            if (!save)
+            {
+                await Navigation.PopAsync();
+            }
+
+            int result = viewModel.SaveBaralho();
+
+            if (result == 0)
+            {
+                await Navigation.PopAsync();
+            }
+            else if (result == -1)
+            {
+                await DisplayAlert("Erro", "Já existe um baralho com esse nome", "Ok");
+            }
+
+            
         }
 
         private async void CreateCard(object sender, EventArgs e)
         {
+            CreateBaralhoViewModel viewModel = (CreateBaralhoViewModel)BindingContext;
             string result = await DisplayActionSheet("Qual tipo de carta?", "Cancelar", null, "Desafio", "Jogo");
             if (result != null)
             {
-                CreateBaralhoViewModel viewModel = (CreateBaralhoViewModel)BindingContext;
                 await Navigation.PushAsync(new CreateCardPage(viewModel.CreateCard(result)));
             }
         }
@@ -46,12 +71,28 @@ namespace DrinkingGame.Views
         private async void Save_Clicked(object sender, EventArgs e)
         {
             CreateBaralhoViewModel viewModel = (CreateBaralhoViewModel)BindingContext;
-            string descr = await DisplayPromptAsync("Descrição:", "Descreva o seu baralho", maxLength: 100);
-            if (descr != null)
+            string[] buttons = new string[] { "Descrição", "Deletar" };
+            string result = await DisplayActionSheet("Configure", "Cancelar", null, buttons);
+            
+            if (result == "Descrição")
             {
-                viewModel.SaveBaralho(descr);
-                await Navigation.PopAsync();
+                string descr = await DisplayPromptAsync("Descrição:", "Descreva o seu baralho", maxLength: 100);
+                if (descr != null)
+                {
+                    viewModel.AddDescr(descr);
+                }
             }
+            else if (result == "Deletar")
+            {
+                bool del = await DisplayAlert("Aviso", "Você mesmo DELETAR?", "sim", "não" );
+                if (del == true)
+                {
+                    viewModel.DeleteBaralho();
+                    await Navigation.PopAsync();
+                }
+            }
+
+            
                 
 
         }

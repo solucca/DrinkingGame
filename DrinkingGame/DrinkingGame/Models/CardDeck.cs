@@ -32,6 +32,7 @@ namespace DrinkingGame.Models
 
         public void Shuffle()
         {
+            CurrentIndex = 0;
             Random rand = new Random();
             for (int i = 0; i < Cards.Count - 1; i++)
             {

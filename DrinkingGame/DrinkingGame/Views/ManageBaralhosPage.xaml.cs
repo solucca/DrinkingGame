@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DrinkingGame.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,13 @@ namespace DrinkingGame.Views
         private async void GoBack(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
+        }
+
+        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Baralho item = (Baralho)e.Item;
+
+            await Navigation.PushAsync(new CreateBaralhoPage(item));
         }
     }
 }

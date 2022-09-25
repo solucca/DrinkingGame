@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DrinkingGame.Views.ScoreboardPage"
              xmlns:vm="clr-namespace:DrinkingGame.ViewModels"
-             Shell.NavBarIsVisible="True"
-             Title="Placar">
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.BindingContext>
         <vm:ScoreboardViewModel/>
     </ContentPage.BindingContext>
@@ -23,6 +22,23 @@
     
     <ContentPage.Content>
         <StackLayout>
+            <Frame BackgroundColor="{StaticResource Primary}" 
+                   Padding="5,5,10,5" HasShadow="True">
+                <StackLayout Orientation="Horizontal" HeightRequest="-1">
+                    <Button Text="&#xE802;" FontFamily="Icones"
+                            FontAttributes="Bold" FontSize="30"
+                            WidthRequest="60" HorizontalOptions="Start"
+                            Clicked="GoBack"/>
+                    <Label Text="Placar:" VerticalOptions="Center" 
+                           FontSize="35" TextColor="White" FontAttributes="Bold"
+                           HorizontalOptions="CenterAndExpand"/>
+                    <Button Text="&#xE805;" FontFamily="Icones"
+                            FontAttributes="Bold" FontSize="30"
+                            WidthRequest="60" HorizontalOptions="EndAndExpand"
+                            Clicked="QuitGame"/>
+                </StackLayout>
+            </Frame>
+            
 
             <Label Text="{Binding Score, StringFormat='Objetivo: {0}'}" 
                    HorizontalOptions="CenterAndExpand" Margin="10,15,10,10"

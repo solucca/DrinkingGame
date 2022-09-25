@@ -56,8 +56,20 @@ namespace DrinkingGame.Views
 
         private async void StartGame(object sender, System.EventArgs e)
         {
-            ((PlayersViewModel)BindingContext).StartGame();
-            await Navigation.PushAsync( new CardPage() );
+            int i = ((PlayersViewModel)BindingContext).StartGame();
+            if (i == -1)
+            {
+                await DisplayAlert("Erro", "Pontos precisa estar entre 5 e 120", "Ok");
+            }
+            else if ( i == -2)
+            {
+                await DisplayAlert("Erro", "Numero insuficiente de jogadores", "Ok");
+            }
+            else if (i == 0)
+            {
+                await Navigation.PushAsync(new CardPage());
+            }
+            
         }
     }
 }
